@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Gleb Pyatkov — AI Automation Engineer</title>
+  <meta name="description" content="AI Automation Engineer building agentic workflows and multi-agent systems — end to end, from idea to production. Solo, full-cycle." />
+  <meta name="author" content="Gleb Pyatkov" />
+  <meta name="theme-color" content="#0b0a09" />
+  <meta name="color-scheme" content="dark" />
+
+  <!-- Open Graph / Twitter -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Gleb Pyatkov — AI Automation Engineer" />
+  <meta property="og:description" content="Agentic Workflows & Multi-Agent Systems. Solo, full-cycle. From idea to production." />
+  <meta property="og:image" content="assets/img/photo.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <!-- Drop .no-js as early as possible so a working browser gets the enhanced UI;
+       if the module fails/blocked, .no-js stays and reveals all content (no blank page). -->
+  <script>document.documentElement.classList.remove('no-js');</script>
+
+  <!-- Fonts: JetBrains Mono (all chrome) + Inter (reading prose only). No Space Grotesk. -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700;800&family=Inter:wght@400;500&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="css/styles.css?v=2" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='6' fill='%230b0a09'/%3E%3Crect x='4' y='4' width='92' height='92' rx='4' fill='none' stroke='%23f5a623' stroke-width='3'/%3E%3Ctext x='50' y='66' font-family='monospace' font-size='46' font-weight='800' text-anchor='middle' fill='%23f5a623'%3Egp%3C/text%3E%3C/svg%3E" />
+</head>
+<body>
+  <!-- Decorative background: fixed amber grid + warm top vignette (whisper-quiet) -->
+  <div class="bg" aria-hidden="true">
+    <div class="bg__grid"></div>
+    <div class="bg__vignette"></div>
+    <div class="bg__scan"></div>
+  </div>
+
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- ───────────────────────── Navbar ───────────────────────── -->
+  <header class="nav" id="nav">
+    <div class="container nav__inner">
+      <a class="nav__brand" href="#hero" aria-label="Gleb Pyatkov — top">
+        <span class="brand">gp<span class="brand__cur">_</span></span>
+      </a>
+
+      <nav class="nav__links" aria-label="Primary">
+        <a href="#hero" data-i18n="nav.about">About</a>
+        <a href="#projects" data-i18n="nav.projects">Projects</a>
+        <a href="#approach" data-i18n="nav.approach">Approach</a>
+        <a href="#skills" data-i18n="nav.skills">Skills</a>
+        <a href="#experience" data-i18n="nav.experience">Experience</a>
+        <a href="#contact" data-i18n="nav.contact">Contact</a>
+      </nav>
+
+      <div class="nav__actions">
+        <div class="lang" role="group" data-i18n-aria="aria.langGroup" aria-label="Language">
+          <button type="button" class="lang__btn" data-lang-btn="en" aria-pressed="true">EN</button>
+          <span class="lang__sep" aria-hidden="true">|</span>
+          <button type="button" class="lang__btn" data-lang-btn="ru" aria-pressed="false">RU</button>
+        </div>
+        <a class="btn btn--bracket nav__contact" href="#contact"><span class="btn__label" data-i18n="nav.contactBtn">contact</span></a>
+        <button type="button" class="nav__burger" id="burger" data-i18n-aria="aria.menuOpen" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ─────────────────── Mobile overlay menu ─────────────────── -->
+  <div class="mobile-menu" id="mobile-menu" hidden>
+    <nav class="mobile-menu__links" aria-label="Mobile">
+      <a href="#hero"><span class="mm__idx" aria-hidden="true">01</span><span data-i18n="nav.about">About</span></a>
+      <a href="#projects"><span class="mm__idx" aria-hidden="true">02</span><span data-i18n="nav.projects">Projects</span></a>
+      <a href="#approach"><span class="mm__idx" aria-hidden="true">03</span><span data-i18n="nav.approach">Approach</span></a>
+      <a href="#skills"><span class="mm__idx" aria-hidden="true">04</span><span data-i18n="nav.skills">Skills</span></a>
+      <a href="#experience"><span class="mm__idx" aria-hidden="true">05</span><span data-i18n="nav.experience">Experience</span></a>
+      <a href="#contact"><span class="mm__idx" aria-hidden="true">06</span><span data-i18n="nav.contact">Contact</span></a>
+    </nav>
+  </div>
+
+  <main id="main">
+    <!-- ───────────────────────── Hero ───────────────────────── -->
+    <section class="hero" id="hero">
+      <div class="container hero__grid">
+        <div class="hero__content">
+          <p class="prompt" data-reveal>
+            <span class="prompt__sign" aria-hidden="true">&gt;</span>
+            <span data-i18n="hero.eyebrow">AI AUTOMATION ENGINEER</span>
+            <span class="caret" aria-hidden="true"></span>
+          </p>
+          <h1 class="hero__name" data-reveal data-i18n="hero.name">Gleb Pyatkov</h1>
+          <p class="hero__title" data-reveal data-i18n="hero.title">Agentic Workflows &amp; Multi-Agent Systems</p>
+          <p class="hero__tagline" data-reveal data-i18n="hero.tagline">I architect and ship production AI systems — multi-agent orchestration, RAG and vector search, fine-tuning and prompt engineering — together with the surrounding software: web interfaces, native macOS (Swift) applications, backend services and infrastructure. AI-native, full-cycle from architecture to operations, delivered solo.</p>
+          <p class="hero__location" data-reveal data-i18n="hero.location">Remote-first · Open to relocation</p>
+
+          <div class="hero__cta" data-reveal>
+            <a class="btn btn--primary btn--bracket" href="mailto:crypttwit48@gmail.com"><span class="btn__label" data-i18n="hero.ctaEmail">email</span></a>
+            <a class="btn btn--outline btn--bracket" href="https://t.me/pyatkovgleb" target="_blank" rel="noopener"><span class="btn__label" data-i18n="hero.ctaTelegram">telegram</span></a>
+            <a class="btn btn--ghost btn--bracket" href="assets/Gleb_Pyatkov_CV.pdf" download><span class="btn__label" data-i18n="hero.ctaCV">download cv</span></a>
+          </div>
+
+          <ul class="hero__chips" aria-label="Core technologies" data-reveal>
+            <li class="chip">Python</li>
+            <li class="chip">LangChain</li>
+            <li class="chip">LangGraph</li>
+            <li class="chip">RAG</li>
+            <li class="chip">pgvector</li>
+            <li class="chip">Multi-Agent Systems</li>
+            <li class="chip">FastAPI</li>
+            <li class="chip">Prompt Engineering</li>
+            <li class="chip">Claude Agent SDK</li>
+            <li class="chip">MCP</li>
+          </ul>
+        </div>
+
+        <div class="hero__photo" data-reveal>
+          <figure class="panel">
+            <span class="panel__tick panel__tick--tl" aria-hidden="true"></span>
+            <span class="panel__tick panel__tick--tr" aria-hidden="true"></span>
+            <span class="panel__tick panel__tick--bl" aria-hidden="true"></span>
+            <span class="panel__tick panel__tick--br" aria-hidden="true"></span>
+            <div class="panel__media">
+              <picture>
+                <source srcset="assets/img/photo.webp" type="image/webp" />
+                <img class="panel__img" src="assets/img/photo.jpg" alt="Gleb Pyatkov" decoding="async" width="640" height="800" />
+              </picture>
+            </div>
+            <figcaption class="panel__meta">
+              <span class="panel__file">gleb_pyatkov.jpg</span>
+              <span class="panel__loc" aria-hidden="true">// REMOTE</span>
+            </figcaption>
+            <p class="panel__status">
+              <span class="dot dot--ok" aria-hidden="true"></span>
+              <span data-i18n="hero.status">open to work</span>
+            </p>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- ──────────────────── Stats (counters) ──────────────────── -->
+    <section class="stats" id="stats" aria-label="Key metrics">
+      <div class="container stats__row">
+        <div class="stat" data-reveal>
+          <span class="stat__num" data-target="6" data-suffix="">6</span>
+          <span class="stat__label" data-i18n="stats.systems">in production</span>
+        </div>
+        <div class="stat" data-reveal>
+          <span class="stat__num" data-target="100" data-suffix="%">100%</span>
+          <span class="stat__label" data-i18n="stats.solo">solo, full-cycle</span>
+        </div>
+        <div class="stat" data-reveal>
+          <span class="stat__num">Web + macOS</span>
+          <span class="stat__label" data-i18n="stats.platform">full-stack + native</span>
+        </div>
+        <div class="stat" data-reveal>
+          <span class="stat__num" data-target="95" data-suffix="%">95%</span>
+          <span class="stat__label" data-i18n="stats.automated">automated</span>
+        </div>
+        <div class="stat" data-reveal>
+          <span class="stat__num">24/7</span>
+          <span class="stat__label" data-i18n="stats.autonomous">autonomous</span>
+        </div>
+        <div class="stat" data-reveal>
+          <span class="stat__num">0→1</span>
+          <span class="stat__label" data-i18n="stats.zeroToOne">idea → production</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ──────────────────────── Projects ───────────────────────── -->
+    <section class="section" id="projects">
+      <div class="container">
+        <header class="shead" data-reveal>
+          <p class="kicker" data-i18n="projects.kicker">// what I build</p>
+          <h2 class="h2" data-i18n="projects.title">Projects</h2>
+          <p class="shead__sub" data-i18n="projects.intro">Six production systems — AI agents, automation pipelines and full-cycle SaaS, all shipped solo.</p>
+        </header>
+
+        <div class="projects">
+          <!-- [01] hookora — FLAGSHIP (content key set: p1) -->
+          <article class="project" data-reveal>
+            <header class="project__head">
+              <span class="project__idx" aria-hidden="true">[01]</span>
+              <h3 class="project__name">hookora</h3>
+              <span class="leader" aria-hidden="true"></span>
+              <span class="badge badge--flagship" data-i18n="badge.flagship">FLAGSHIP</span>
+            </header>
+            <p class="project__sub" data-i18n="p1.sub">AI content-marketing SaaS where AI agents run strategy and auto-posting</p>
+            <button type="button" class="project__toggle" aria-expanded="false" aria-controls="p1-details">
+              <span class="project__toggle-label" data-i18n="ui.expand">expand ▸</span>
+            </button>
+            <div class="project__details" id="p1-details">
+              <ul class="project__bullets">
+                <li data-i18n="p1.b1">"Brain" multi-agent system — 3 agents (analyst / scriptwriter / closer) sharing a pgvector knowledge base</li>
+                <li data-i18n="p1.b2">Orchestrated via the Claude Agent SDK; monorepo of 5 services behind one Nginx gateway</li>
+                <li data-i18n="p1.b3">Fastify + PostgreSQL backend, React 18 + Vite frontend, 43 backend tests, Playwright E2E, Dockerized on a VPS</li>
+              </ul>
+              <div class="project__metrics">
+                <span class="chip chip--metric" data-i18n="p1.m1">5 services</span>
+                <span class="chip chip--metric" data-i18n="p1.m2">3 AI agents</span>
+                <span class="chip chip--metric" data-i18n="p1.m3">43 tests</span>
+              </div>
+            </div>
+            <div class="ribbon" data-ribbon="hookora"></div>
+            <p class="project__stack"><span class="project__stack-k">stack</span> TypeScript · Fastify · React · Vite · PostgreSQL · pgvector · Claude Agent SDK · OpenRouter · Docker · Nginx</p>
+          </article>
+
+          <!-- [02] Whispo (content key set: p5) -->
+          <article class="project" data-reveal>
+            <header class="project__head">
+              <span class="project__idx" aria-hidden="true">[02]</span>
+              <h3 class="project__name">Whispo</h3>
+              <span class="leader" aria-hidden="true"></span>
+            </header>
+            <p class="project__sub" data-i18n="p5.sub">0→1 voice-dictation SaaS — macOS + web + payments backend</p>
+            <button type="button" class="project__toggle" aria-expanded="false" aria-controls="p5-details">
+              <span class="project__toggle-label" data-i18n="ui.expand">expand ▸</span>
+            </button>
+            <div class="project__details" id="p5-details">
+              <ul class="project__bullets">
+                <li data-i18n="p5.b1">Native macOS app (Swift/SwiftUI) — hotkey dictation (Option+Space), Groq Whisper, paste into the active app</li>
+                <li data-i18n="p5.b2">FastAPI backend — 13 API modules, JWT (ES256), rate limiting, Prometheus metrics</li>
+                <li data-i18n="p5.b3">Free/Standard/Pro subscriptions (YooKassa, CryptoCloud), auto-renewal, payment webhooks; GPT-4.1 text cleanup</li>
+              </ul>
+              <div class="project__metrics">
+                <span class="chip chip--metric" data-i18n="p5.m1">macOS + Web</span>
+                <span class="chip chip--metric" data-i18n="p5.m2">JWT ES256</span>
+                <span class="chip chip--metric" data-i18n="p5.m3">Payments</span>
+              </div>
+            </div>
+            <div class="ribbon" data-ribbon="whispo"></div>
+            <p class="project__stack"><span class="project__stack-k">stack</span> Swift · SwiftUI · React · TypeScript · FastAPI · PostgreSQL · Groq · YooKassa · CryptoCloud · Docker</p>
+          </article>
+
+          <!-- [03] hh.ru Job Agent — CURRENT (content key set: p2) -->
+          <article class="project" data-reveal>
+            <header class="project__head">
+              <span class="project__idx" aria-hidden="true">[03]</span>
+              <h3 class="project__name">hh.ru Job Agent</h3>
+              <span class="leader" aria-hidden="true"></span>
+              <span class="badge badge--current" data-i18n="badge.current">CURRENT</span>
+            </header>
+            <p class="project__sub" data-i18n="p2.sub">Autonomous AI agent that chats with recruiters and applies to jobs for me</p>
+            <button type="button" class="project__toggle" aria-expanded="false" aria-controls="p2-details">
+              <span class="project__toggle-label" data-i18n="ui.expand">expand ▸</span>
+            </button>
+            <div class="project__details" id="p2-details">
+              <ul class="project__bullets">
+                <li data-i18n="p2.b1">Claude-based agent across 5 conversation channels (AI recruiter, live recruiter, Telegram, Google Forms, hh.ru forms)</li>
+                <li data-i18n="p2.b2">RAG retriever over a modular knowledge base — only relevant cards enter the prompt; auto-learns from clarifications</li>
+                <li data-i18n="p2.b3">Autopilot scheduler, Playwright over SOCKS5, a Telegram userbot (GramJS) and an admin control bot</li>
+              </ul>
+              <div class="project__metrics">
+                <span class="chip chip--metric" data-i18n="p2.m1">5 channels</span>
+                <span class="chip chip--metric" data-i18n="p2.m2">RAG</span>
+                <span class="chip chip--metric" data-i18n="p2.m3">Autopilot</span>
+              </div>
+            </div>
+            <div class="ribbon" data-ribbon="hh-agent"></div>
+            <p class="project__stack"><span class="project__stack-k">stack</span> Node.js · TypeScript · Playwright · GramJS · Claude (MCP, RAG) · Telegram Bot API</p>
+          </article>
+
+          <!-- [04] MBand (content key set: p3) -->
+          <article class="project" data-reveal>
+            <header class="project__head">
+              <span class="project__idx" aria-hidden="true">[04]</span>
+              <h3 class="project__name">MBand</h3>
+              <span class="leader" aria-hidden="true"></span>
+            </header>
+            <p class="project__sub" data-i18n="p3.sub">Internal AI platform that cut content production time by 75%</p>
+            <button type="button" class="project__toggle" aria-expanded="false" aria-controls="p3-details">
+              <span class="project__toggle-label" data-i18n="ui.expand">expand ▸</span>
+            </button>
+            <div class="project__details" id="p3-details">
+              <ul class="project__bullets">
+                <li data-i18n="p3.b1">20 backend services with real-time progress over WebSocket/SSE</li>
+                <li data-i18n="p3.b2">Multiple AI providers (Gemini, Kling, Veo, Topaz, OpenRouter) with load-balancing, retry and fallback</li>
+                <li data-i18n="p3.b3">Fault-tolerant job queue (memory → DB → file) with auto-recovery; 16-page React SPA</li>
+              </ul>
+              <div class="project__metrics">
+                <span class="chip chip--metric" data-i18n="p3.m1">fault-tolerant</span>
+                <span class="chip chip--metric" data-i18n="p3.m2">20 services</span>
+                <span class="chip chip--metric" data-i18n="p3.m3">−75% time</span>
+              </div>
+            </div>
+            <div class="ribbon" data-ribbon="mband"></div>
+            <p class="project__stack"><span class="project__stack-k">stack</span> Python · FastAPI · React · TypeScript · FFmpeg · Gemini · Kling AI · Topaz · PostgreSQL · Docker</p>
+          </article>
+
+          <!-- [05] VikiShop (content key set: p4) -->
+          <article class="project" data-reveal>
+            <header class="project__head">
+              <span class="project__idx" aria-hidden="true">[05]</span>
+              <h3 class="project__name">VikiShop</h3>
+              <span class="leader" aria-hidden="true"></span>
+            </header>
+            <p class="project__sub" data-i18n="p4.sub">Fully automated digital-goods store — 24/7, zero humans in the loop</p>
+            <button type="button" class="project__toggle" aria-expanded="false" aria-controls="p4-details">
+              <span class="project__toggle-label" data-i18n="ui.expand">expand ▸</span>
+            </button>
+            <div class="project__details" id="p4-details">
+              <ul class="project__bullets">
+                <li data-i18n="p4.b1">4 microservices (FunPay, Playerok, GGSEL bots + Midasbuy auto-purchase worker)</li>
+                <li data-i18n="p4.b2">10-state FSM for the full order lifecycle; Playwright checkout with auto 3-D Secure OTP from email (IMAP)</li>
+                <li data-i18n="p4.b3">Dynamic pricing; concurrency-safe (SELECT FOR UPDATE), idempotent orders, graceful shutdown</li>
+              </ul>
+              <div class="project__metrics">
+                <span class="chip chip--metric" data-i18n="p4.m1">10-state FSM</span>
+                <span class="chip chip--metric" data-i18n="p4.m2">24/7</span>
+                <span class="chip chip--metric" data-i18n="p4.m3">Auto 3DS</span>
+              </div>
+            </div>
+            <div class="ribbon" data-ribbon="vikishop"></div>
+            <p class="project__stack"><span class="project__stack-k">stack</span> Python · asyncio · SQLAlchemy · PostgreSQL · Playwright · Docker · Telegram Bot API · IMAP</p>
+          </article>
+
+          <!-- [06] Telegram bots — no media → no ribbon (content key set: p6) -->
+          <article class="project" data-reveal>
+            <header class="project__head">
+              <span class="project__idx" aria-hidden="true">[06]</span>
+              <h3 class="project__name">Telegram bots</h3>
+              <span class="leader" aria-hidden="true"></span>
+            </header>
+            <p class="project__sub" data-i18n="p6.sub">A series of bots for sales automation, notifications and monitoring</p>
+            <button type="button" class="project__toggle" aria-expanded="false" aria-controls="p6-details">
+              <span class="project__toggle-label" data-i18n="ui.expand">expand ▸</span>
+            </button>
+            <div class="project__details" id="p6-details">
+              <ul class="project__bullets">
+                <li data-i18n="p6.b1">python-telegram-bot / GramJS with job queues and inline keyboards</li>
+                <li data-i18n="p6.b2">Integrated with external APIs and databases; balance monitoring and alerts</li>
+                <li data-i18n="p6.b3">Admin controls, rate limiting via semaphores, Redis-backed settings</li>
+              </ul>
+              <div class="project__metrics">
+                <span class="chip chip--metric" data-i18n="p6.m1">Inline UI</span>
+                <span class="chip chip--metric" data-i18n="p6.m2">Job queue</span>
+                <span class="chip chip--metric" data-i18n="p6.m3">Redis</span>
+              </div>
+            </div>
+            <p class="project__stack"><span class="project__stack-k">stack</span> Python · python-telegram-bot · GramJS · Redis · PostgreSQL</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ──────────────────────── Approach ───────────────────────── -->
+    <section class="section section--alt" id="approach">
+      <div class="container">
+        <header class="shead" data-reveal>
+          <p class="kicker" data-i18n="approach.kicker">// how I work</p>
+          <h2 class="h2" data-i18n="approach.title">Approach</h2>
+          <p class="shead__sub shead__sub--prose" data-i18n="about.intro">An engineer who takes business processes from idea to production with AI agents. I orchestrate LLM agents (Claude Agent SDK, MCP, RAG) and own the whole stack — backend, integrations, frontend, infrastructure and deployment.</p>
+        </header>
+
+        <ol class="approach">
+          <li class="approach__row" data-reveal>
+            <span class="approach__idx" aria-hidden="true">01</span>
+            <span class="approach__dash" aria-hidden="true">—</span>
+            <div class="approach__body">
+              <h3 class="approach__title" data-i18n="pillar1.title">AUTOMATION-FIRST</h3>
+              <p class="approach__desc" data-i18n="pillar1.desc">I design processes around AI agents and multi-agent orchestration, automating up to 95% of manual work.</p>
+            </div>
+          </li>
+          <li class="approach__row" data-reveal>
+            <span class="approach__idx" aria-hidden="true">02</span>
+            <span class="approach__dash" aria-hidden="true">—</span>
+            <div class="approach__body">
+              <h3 class="approach__title" data-i18n="pillar2.title">SOLO, FULL-CYCLE</h3>
+              <p class="approach__desc" data-i18n="pillar2.desc">From architecture and design to deploy and monitoring — including payments and auth.</p>
+            </div>
+          </li>
+          <li class="approach__row" data-reveal>
+            <span class="approach__idx" aria-hidden="true">03</span>
+            <span class="approach__dash" aria-hidden="true">—</span>
+            <div class="approach__body">
+              <h3 class="approach__title" data-i18n="pillar3.title">AI-NATIVE DEVELOPMENT</h3>
+              <p class="approach__desc" data-i18n="pillar3.desc">LLM agents at every stage: design, coding, testing, code review.</p>
+            </div>
+          </li>
+          <li class="approach__row" data-reveal>
+            <span class="approach__idx" aria-hidden="true">04</span>
+            <span class="approach__dash" aria-hidden="true">—</span>
+            <div class="approach__body">
+              <h3 class="approach__title" data-i18n="pillar4.title">PRODUCTION-READY</h3>
+              <p class="approach__desc" data-i18n="pillar4.desc">Every project ships: Docker, health checks, monitoring, error handling, scale.</p>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ──────────────────────── Skills ─────────────────────────── -->
+    <section class="section" id="skills">
+      <div class="container">
+        <header class="shead" data-reveal>
+          <p class="kicker" data-i18n="skills.kicker">// stack</p>
+          <h2 class="h2" data-i18n="skills.title">Skills &amp; tooling</h2>
+          <p class="shead__sub" data-i18n="skills.intro">The stack I use to design, build and ship autonomous systems — end to end.</p>
+        </header>
+
+        <dl class="skills">
+          <div class="skill" data-reveal>
+            <dt class="skill__label" data-i18n="skills.g1">ai &amp; agents</dt>
+            <dd class="skill__tokens">
+              <span class="tok">AI Automation</span><span class="tok">Multi-Agent Systems</span><span class="tok">Agentic Workflows</span><span class="tok">LLM Agents</span><span class="tok">LangChain</span><span class="tok">LangGraph</span><span class="tok">LlamaIndex</span><span class="tok">RAG</span><span class="tok">Vector Search</span><span class="tok">Embeddings</span><span class="tok">pgvector</span><span class="tok">Fine-tuning</span><span class="tok">LoRA / QLoRA</span><span class="tok">Hugging Face</span><span class="tok">PyTorch</span><span class="tok">Transformers</span><span class="tok">LLM Evaluation</span><span class="tok">Agent Harness</span><span class="tok">Claude Agent SDK</span><span class="tok">Model Context Protocol (MCP)</span><span class="tok">Prompt Engineering</span>
+            </dd>
+          </div>
+          <div class="skill" data-reveal>
+            <dt class="skill__label" data-i18n="skills.g2">backend</dt>
+            <dd class="skill__tokens">
+              <span class="tok">Python</span><span class="tok">FastAPI</span><span class="tok">asyncio</span><span class="tok">SQLAlchemy</span><span class="tok">Pydantic</span><span class="tok">Node.js</span><span class="tok">TypeScript</span><span class="tok">Fastify</span><span class="tok">REST APIs</span><span class="tok">GraphQL</span><span class="tok">gRPC</span><span class="tok">WebSockets</span><span class="tok">Server-Sent Events</span><span class="tok">Microservices</span>
+            </dd>
+          </div>
+          <div class="skill" data-reveal>
+            <dt class="skill__label" data-i18n="skills.g3">data &amp; infra</dt>
+            <dd class="skill__tokens">
+              <span class="tok">PostgreSQL</span><span class="tok">pgvector</span><span class="tok">Pinecone / Qdrant</span><span class="tok">Redis</span><span class="tok">Docker</span><span class="tok">docker-compose</span><span class="tok">Kubernetes</span><span class="tok">Nginx</span><span class="tok">Caddy</span><span class="tok">CI/CD</span><span class="tok">AWS</span><span class="tok">Prometheus</span><span class="tok">Linux / VPS</span>
+            </dd>
+          </div>
+          <div class="skill" data-reveal>
+            <dt class="skill__label" data-i18n="skills.g4">frontend &amp; software</dt>
+            <dd class="skill__tokens">
+              <span class="tok">React</span><span class="tok">Next.js</span><span class="tok">TypeScript</span><span class="tok">Vite</span><span class="tok">Tailwind CSS</span><span class="tok">Zustand</span><span class="tok">React Query</span><span class="tok">Swift</span><span class="tok">SwiftUI</span><span class="tok">macOS apps</span>
+            </dd>
+          </div>
+          <div class="skill" data-reveal>
+            <dt class="skill__label" data-i18n="skills.g5">automation</dt>
+            <dd class="skill__tokens">
+              <span class="tok">Playwright</span><span class="tok">Telegram Bot API</span><span class="tok">GramJS</span><span class="tok">IMAP</span><span class="tok">Google Sheets API</span><span class="tok">FFmpeg</span>
+            </dd>
+          </div>
+        </dl>
+      </div>
+    </section>
+
+    <!-- ────────────── Experience + Education ────────────── -->
+    <section class="section section--alt" id="experience">
+      <div class="container">
+        <header class="shead" data-reveal>
+          <p class="kicker" data-i18n="exp.kicker">// experience</p>
+          <h2 class="h2" data-i18n="exp.title">Experience</h2>
+        </header>
+
+        <div class="exp-edu">
+          <article class="xp" data-reveal>
+            <div class="xp__head">
+              <h3 class="xp__company" data-i18n="exp.company">Mario Berlucci</h3>
+              <span class="xp__role" data-i18n="exp.role">Fullstack Developer</span>
+            </div>
+            <p class="xp__meta"><span data-i18n="exp.meta">Jan 2024 — Present</span></p>
+            <p class="xp__tag" data-i18n="exp.tag">Footwear &amp; apparel retail brand</p>
+            <ul class="xp__bullets">
+              <li data-i18n="exp.b1">Built a content-automation platform that cut video processing time by 75% (20+ min → 3–5 min) and automated 95% of manual operations</li>
+              <li data-i18n="exp.b2">Designed a multi-service architecture — 20 backend services with real-time WebSocket/SSE progress</li>
+              <li data-i18n="exp.b3">Integrated multiple external AI services with load-balancing, retry logic and dynamic pricing</li>
+              <li data-i18n="exp.b4">Built a fault-tolerant job queue (memory → DB → file) with auto-recovery and parallel processing of up to 4 videos</li>
+              <li data-i18n="exp.b5">Set up production deployment — Docker, Caddy reverse proxy with SSL, rsync delivery, health checks</li>
+            </ul>
+          </article>
+
+          <aside class="side">
+            <article class="side__card" data-reveal>
+              <h3 class="side__title" data-i18n="edu.title">Education</h3>
+              <p class="side__school" data-i18n="edu.school">NUST MISIS</p>
+              <p class="side__line" data-i18n="edu.line">Applied Informatics · Bachelor's degree · 2026</p>
+            </article>
+            <article class="side__card" data-reveal>
+              <h3 class="side__title" data-i18n="lang.title">Languages</h3>
+              <p class="side__line" data-i18n="lang.value">Russian — Native · English — B2 (Upper-Intermediate)</p>
+            </article>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- ──────────────────── Contact / closing ──────────────────── -->
+    <section class="section contact" id="contact">
+      <div class="container">
+        <header class="shead shead--center" data-reveal>
+          <p class="kicker" data-i18n="contact.kicker">$ contact</p>
+          <h2 class="h2 contact__closing" data-i18n="contact.closing">Let's build something that runs itself.</h2>
+          <p class="shead__sub" data-i18n="contact.sub">Open to AI Automation / Agentic Engineering roles — remote-first, open to relocation.</p>
+        </header>
+
+        <div class="contact__rows" data-reveal>
+          <a class="crow" href="mailto:crypttwit48@gmail.com">
+            <span class="crow__k" data-i18n="contact.lblEmail">email</span>
+            <span class="crow__dots" aria-hidden="true"></span>
+            <span class="crow__v">crypttwit48@gmail.com</span>
+          </a>
+          <a class="crow" href="https://t.me/pyatkovgleb" target="_blank" rel="noopener">
+            <span class="crow__k" data-i18n="contact.lblTelegram">telegram</span>
+            <span class="crow__dots" aria-hidden="true"></span>
+            <span class="crow__v">@pyatkovgleb</span>
+          </a>
+          <a class="crow" href="tel:+79297573901">
+            <span class="crow__k" data-i18n="contact.lblPhone">phone</span>
+            <span class="crow__dots" aria-hidden="true"></span>
+            <span class="crow__v">+7 929 757-39-01</span>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ──────────────────────── Footer ─────────────────────────── -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <a class="nav__brand" href="#hero" aria-label="Gleb Pyatkov — top"><span class="brand">gp<span class="brand__cur">_</span></span></a>
+      <p class="footer__copy" data-i18n="footer.copy">© 2026 Gleb Pyatkov · Static site, deployed on a VPS</p>
+      <a class="footer__top" href="#hero" data-i18n="footer.backToTop">back to top ↑</a>
+    </div>
+  </footer>
+
+  <script type="module" src="js/main.js?v=2"></script>
+</body>
+</html>

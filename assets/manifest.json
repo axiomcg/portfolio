@@ -1,0 +1,49 @@
+{
+  "items": [
+    { "id": "hookora-1", "project": "hookora", "type": "image", "src": "assets/img/hookora-1.webp", "w": 1500, "h": 1000, "caption": { "en": "Autoposting — connected platforms", "ru": "Автопостинг — подключённые платформы" } },
+    { "id": "hookora-2", "project": "hookora", "type": "image", "src": "assets/img/hookora-2.webp", "w": 1500, "h": 1000, "caption": { "en": "Keyword funnels — auto-DM on comment trigger", "ru": "Воронки — авто-ДМ по ключевому слову" } },
+    { "id": "hookora-3", "project": "hookora", "type": "image", "src": "assets/img/hookora-3.webp", "w": 1500, "h": 1000, "caption": { "en": "Video search — trending clips by topic", "ru": "Поиск видео — вирусные ролики по теме" } },
+    { "id": "hookora-4", "project": "hookora", "type": "image", "src": "assets/img/hookora-4.webp", "w": 1500, "h": 1000, "caption": { "en": "Reel transcription — ready to process", "ru": "Транскрипция Reels — готово к запуску" } },
+    { "id": "hookora-5", "project": "hookora", "type": "image", "src": "assets/img/hookora-5.webp", "w": 1500, "h": 1000, "caption": { "en": "Reel transcription — timestamped result", "ru": "Транскрипция Reels — результат с таймкодами" } },
+    { "id": "hookora-6", "project": "hookora", "type": "image", "src": "assets/img/hookora-6.webp", "w": 1500, "h": 1000, "caption": { "en": "Subtitle studio — project library", "ru": "Субтитр-студия — библиотека проектов" } },
+    { "id": "hookora-7", "project": "hookora", "type": "image", "src": "assets/img/hookora-7.webp", "w": 1500, "h": 1000, "caption": { "en": "Subtitle studio — speech recognition", "ru": "Субтитр-студия — распознавание речи" } },
+    { "id": "hookora-8", "project": "hookora", "type": "image", "src": "assets/img/hookora-8.webp", "w": 1500, "h": 1000, "caption": { "en": "Subtitle studio — style editor, live preview", "ru": "Субтитр-студия — редактор стиля с превью" } },
+
+    { "id": "whispo-web-demo",   "project": "whispo", "type": "video", "src": "assets/video/whispo-web-demo.mp4", "poster": "assets/poster/whispo-web-demo.jpg", "w": 1500, "h": 1000, "caption": { "en": "Web — live demo",                "ru": "Веб — живое демо" } },
+    { "id": "whispo-mac-demo",   "project": "whispo", "type": "video", "src": "assets/video/whispo-mac-demo.mp4", "poster": "assets/poster/whispo-mac-demo.jpg", "w": 1500, "h": 1000, "caption": { "en": "macOS app — live demo",          "ru": "macOS-приложение — живое демо" } },
+    { "id": "whispo-mac-home",     "project": "whispo", "type": "image", "src": "assets/img/whispo-mac-home.webp",     "w": 1500, "h": 1000, "caption": { "en": "macOS — home & hotkeys",            "ru": "macOS — главный экран и хоткеи" } },
+    { "id": "whispo-mac-history",  "project": "whispo", "type": "image", "src": "assets/img/whispo-mac-history.webp",  "w": 1500, "h": 1000, "caption": { "en": "macOS — transcription history",     "ru": "macOS — история транскрипций" } },
+    { "id": "whispo-mac-memory",   "project": "whispo", "type": "image", "src": "assets/img/whispo-mac-memory.webp",   "w": 1500, "h": 1000, "caption": { "en": "macOS — memory storage (AI notes)", "ru": "macOS — память (AI-заметки)" } },
+    { "id": "whispo-mac-style",    "project": "whispo", "type": "image", "src": "assets/img/whispo-mac-style.webp",    "w": 1500, "h": 1000, "caption": { "en": "macOS — output style",              "ru": "macOS — стиль вывода" } },
+    { "id": "whispo-mac-settings", "project": "whispo", "type": "image", "src": "assets/img/whispo-mac-settings.webp", "w": 1500, "h": 1000, "caption": { "en": "macOS — settings & language",       "ru": "macOS — настройки и язык" } },
+    { "id": "whispo-mac-invite",   "project": "whispo", "type": "image", "src": "assets/img/whispo-mac-invite.webp",   "w": 1500, "h": 1000, "caption": { "en": "macOS — invite friends",           "ru": "macOS — пригласить друзей" } },
+    { "id": "whispo-mac-help",     "project": "whispo", "type": "image", "src": "assets/img/whispo-mac-help.webp",     "w": 1500, "h": 1000, "caption": { "en": "macOS — help & shortcuts",         "ru": "macOS — помощь и хоткеи" } },
+    { "id": "whispo-web-home",     "project": "whispo", "type": "image", "src": "assets/img/whispo-web-home.webp",     "w": 1500, "h": 1000, "caption": { "en": "Web — landing",                    "ru": "Веб — лендинг" } },
+    { "id": "whispo-web-pricing",  "project": "whispo", "type": "image", "src": "assets/img/whispo-web-pricing.webp",  "w": 1500, "h": 1000, "caption": { "en": "Web — pricing",                    "ru": "Веб — тарифы" } },
+    { "id": "whispo-web-download", "project": "whispo", "type": "image", "src": "assets/img/whispo-web-download.webp", "w": 1500, "h": 1000, "caption": { "en": "Web — download",                   "ru": "Веб — загрузка" } },
+    { "id": "whispo-web-faq",      "project": "whispo", "type": "image", "src": "assets/img/whispo-web-faq.webp",      "w": 1500, "h": 1000, "caption": { "en": "Web — FAQ",                       "ru": "Веб — FAQ" } },
+    { "id": "whispo-web-contact",  "project": "whispo", "type": "image", "src": "assets/img/whispo-web-contact.webp",  "w": 1500, "h": 1000, "caption": { "en": "Web — contact",                   "ru": "Веб — контакты" } },
+
+    { "id": "hh-1", "project": "hh-agent", "type": "image", "src": "assets/img/hh-1.webp", "w": 1500, "h": 1000, "caption": { "en": "Dashboard — chat stats overview",          "ru": "Дашборд — обзор статистики чатов" } },
+    { "id": "hh-2", "project": "hh-agent", "type": "image", "src": "assets/img/hh-2.webp", "w": 1500, "h": 1000, "caption": { "en": "HR chats — all negotiations",              "ru": "Чаты — переговоры с HR" } },
+    { "id": "hh-3", "project": "hh-agent", "type": "image", "src": "assets/img/hh-3.webp", "w": 1500, "h": 1000, "caption": { "en": "Knowledge base — candidate profile cards", "ru": "База знаний — карточки профиля" } },
+    { "id": "hh-4", "project": "hh-agent", "type": "image", "src": "assets/img/hh-4.webp", "w": 1500, "h": 1000, "caption": { "en": "Autopilot — queries & schedule",           "ru": "Автопилот — запросы и расписание" } },
+    { "id": "hh-5", "project": "hh-agent", "type": "image", "src": "assets/img/hh-5.webp", "w": 1500, "h": 1000, "caption": { "en": "Run history — launch log + live terminal",  "ru": "Запуски — лог с живым терминалом" } },
+    { "id": "hh-6", "project": "hh-agent", "type": "image", "src": "assets/img/hh-6.webp", "w": 1500, "h": 1000, "caption": { "en": "Eval — answer-quality testing",            "ru": "Эвал — тест качества ответов" } },
+    { "id": "hh-7", "project": "hh-agent", "type": "image", "src": "assets/img/hh-7.webp", "w": 1500, "h": 1000, "caption": { "en": "Prompt editor — versioned system prompt",  "ru": "Редактор промпта — версии системного промпта" } },
+
+    { "id": "mband-1", "project": "mband", "type": "image", "src": "assets/img/mband-1.webp", "w": 1500, "h": 1000, "caption": { "en": "MBand AI — content tools hub",            "ru": "MBand AI — хаб инструментов" } },
+    { "id": "mband-2", "project": "mband", "type": "image", "src": "assets/img/mband-2.webp", "w": 1500, "h": 1000, "caption": { "en": "AI chat — built-in LLM assistant",        "ru": "ИИ-чат — встроенный LLM-ассистент" } },
+    { "id": "mband-3", "project": "mband", "type": "image", "src": "assets/img/mband-3.webp", "w": 1500, "h": 1000, "caption": { "en": "Image to video — Kling / Veo / Seedance",  "ru": "Изображение в видео — Kling / Veo / Seedance" } },
+    { "id": "mband-4", "project": "mband", "type": "image", "src": "assets/img/mband-4.webp", "w": 1500, "h": 1000, "caption": { "en": "AI image — text-to-image generation",     "ru": "ИИ-изображение — генерация по промту" } },
+    { "id": "mband-5", "project": "mband", "type": "image", "src": "assets/img/mband-5.webp", "w": 1500, "h": 1000, "caption": { "en": "Edit image — AI photo editing + history",  "ru": "Редактирование фото — ИИ-правка с историей" } },
+    { "id": "mband-6", "project": "mband", "type": "image", "src": "assets/img/mband-6.webp", "w": 1500, "h": 1000, "caption": { "en": "Upscale — Topaz AI, before/after",         "ru": "Апскейл — Topaz AI, до/после" } },
+    { "id": "mband-7", "project": "mband", "type": "image", "src": "assets/img/mband-7.webp", "w": 1500, "h": 1000, "caption": { "en": "Lamoda Fit — marketplace photo prep",     "ru": "Lamoda Fit — фото для маркетплейса" } },
+    { "id": "mband-8", "project": "mband", "type": "image", "src": "assets/img/mband-8.webp", "w": 1500, "h": 1000, "caption": { "en": "Compress — media size reduction",          "ru": "Сжатие медиа — без потери качества" } },
+    { "id": "mband-9", "project": "mband", "type": "image", "src": "assets/img/mband-9.webp", "w": 1500, "h": 1000, "caption": { "en": "Logo on video — brand watermark",         "ru": "Логотип на видео — брендирование" } },
+
+    { "id": "viki-3ds",       "project": "vikishop", "type": "image", "src": "assets/img/viki-3ds.webp",       "w": 1280, "h": 2650, "caption": { "en": "Automated 3-D Secure checkout", "ru": "Авто 3-D Secure оплата" } },
+    { "id": "viki-payment",   "project": "vikishop", "type": "image", "src": "assets/img/viki-payment.webp",   "w": 1280, "h": 2650, "caption": { "en": "Supplier checkout automation",  "ru": "Автооплата у поставщика" } },
+    { "id": "viki-completed", "project": "vikishop", "type": "image", "src": "assets/img/viki-completed.webp", "w": 1280, "h": 1024, "caption": { "en": "Order delivered",               "ru": "Заказ доставлен" } }
+  ]
+}
