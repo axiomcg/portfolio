@@ -1,13 +1,13 @@
 {
   "items": [
-    { "id": "hookora-1", "project": "hookora", "type": "image", "src": "assets/img/hookora-1.webp", "w": 1500, "h": 1000, "caption": { "en": "Autoposting — connected platforms", "ru": "Автопостинг — подключённые платформы" } },
     { "id": "hookora-2", "project": "hookora", "type": "image", "src": "assets/img/hookora-2.webp", "w": 1500, "h": 1000, "caption": { "en": "Keyword funnels — auto-DM on comment trigger", "ru": "Воронки — авто-ДМ по ключевому слову" } },
     { "id": "hookora-3", "project": "hookora", "type": "image", "src": "assets/img/hookora-3.webp", "w": 1500, "h": 1000, "caption": { "en": "Video search — trending clips by topic", "ru": "Поиск видео — вирусные ролики по теме" } },
-    { "id": "hookora-4", "project": "hookora", "type": "image", "src": "assets/img/hookora-4.webp", "w": 1500, "h": 1000, "caption": { "en": "Reel transcription — ready to process", "ru": "Транскрипция Reels — готово к запуску" } },
-    { "id": "hookora-5", "project": "hookora", "type": "image", "src": "assets/img/hookora-5.webp", "w": 1500, "h": 1000, "caption": { "en": "Reel transcription — timestamped result", "ru": "Транскрипция Reels — результат с таймкодами" } },
     { "id": "hookora-6", "project": "hookora", "type": "image", "src": "assets/img/hookora-6.webp", "w": 1500, "h": 1000, "caption": { "en": "Subtitle studio — project library", "ru": "Субтитр-студия — библиотека проектов" } },
     { "id": "hookora-7", "project": "hookora", "type": "image", "src": "assets/img/hookora-7.webp", "w": 1500, "h": 1000, "caption": { "en": "Subtitle studio — speech recognition", "ru": "Субтитр-студия — распознавание речи" } },
     { "id": "hookora-8", "project": "hookora", "type": "image", "src": "assets/img/hookora-8.webp", "w": 1500, "h": 1000, "caption": { "en": "Subtitle studio — style editor, live preview", "ru": "Субтитр-студия — редактор стиля с превью" } },
+    { "id": "hookora-1", "project": "hookora", "type": "image", "src": "assets/img/hookora-1.webp", "w": 1500, "h": 1000, "caption": { "en": "Autoposting — connected platforms", "ru": "Автопостинг — подключённые платформы" } },
+    { "id": "hookora-4", "project": "hookora", "type": "image", "src": "assets/img/hookora-4.webp", "w": 1500, "h": 1000, "caption": { "en": "Reel transcription — ready to process", "ru": "Транскрипция Reels — готово к запуску" } },
+    { "id": "hookora-5", "project": "hookora", "type": "image", "src": "assets/img/hookora-5.webp", "w": 1500, "h": 1000, "caption": { "en": "Reel transcription — timestamped result", "ru": "Транскрипция Reels — результат с таймкодами" } },
 
     { "id": "whispo-web-demo",   "project": "whispo", "type": "video", "src": "assets/video/whispo-web-demo.mp4", "poster": "assets/poster/whispo-web-demo.jpg", "w": 1500, "h": 1000, "caption": { "en": "Web — live demo",                "ru": "Веб — живое демо" } },
     { "id": "whispo-mac-demo",   "project": "whispo", "type": "video", "src": "assets/video/whispo-mac-demo-v2.mp4", "poster": "assets/poster/whispo-mac-demo-v2.jpg", "w": 1500, "h": 1000, "caption": { "en": "macOS app — live demo",          "ru": "macOS-приложение — живое демо" } },
