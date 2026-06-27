@@ -23,7 +23,7 @@ const FALLBACK_GALLERY = {
     { id: 'hookora-8', project: 'hookora', type: 'image', src: 'assets/img/hookora-8.webp', w: 1500, h: 1000, caption: { en: 'Subtitle studio — style editor, live preview', ru: 'Субтитр-студия — редактор стиля с превью' } },
 
     { id: 'whispo-web-demo',     project: 'whispo', type: 'video', src: 'assets/video/whispo-web-demo.mp4', poster: 'assets/poster/whispo-web-demo.jpg', w: 1500, h: 1000, caption: { en: 'Web — live demo',       ru: 'Веб — живое демо' } },
-    { id: 'whispo-mac-demo',     project: 'whispo', type: 'video', src: 'assets/video/whispo-mac-demo.mp4', poster: 'assets/poster/whispo-mac-demo.jpg', w: 1500, h: 1000, caption: { en: 'macOS app — live demo', ru: 'macOS-приложение — живое демо' } },
+    { id: 'whispo-mac-demo',     project: 'whispo', type: 'video', src: 'assets/video/whispo-mac-demo-v2.mp4', poster: 'assets/poster/whispo-mac-demo-v2.jpg', w: 1500, h: 1000, caption: { en: 'macOS app — live demo', ru: 'macOS-приложение — живое демо' } },
     { id: 'whispo-mac-home',     project: 'whispo', type: 'image', src: 'assets/img/whispo-mac-home.webp',     w: 1500, h: 1000, caption: { en: 'macOS — home & hotkeys',            ru: 'macOS — главный экран и хоткеи' } },
     { id: 'whispo-mac-history',  project: 'whispo', type: 'image', src: 'assets/img/whispo-mac-history.webp',  w: 1500, h: 1000, caption: { en: 'macOS — transcription history',     ru: 'macOS — история транскрипций' } },
     { id: 'whispo-mac-memory',   project: 'whispo', type: 'image', src: 'assets/img/whispo-mac-memory.webp',   w: 1500, h: 1000, caption: { en: 'macOS — memory storage (AI notes)', ru: 'macOS — память (AI-заметки)' } },
