@@ -13,7 +13,7 @@
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Gleb Pyatkov — AI Automation Engineer" />
   <meta property="og:description" content="Agentic Workflows & Multi-Agent Systems. Solo, full-cycle. From idea to production." />
-  <meta property="og:image" content="assets/img/photo.jpg" />
+  <meta property="og:image" content="assets/img/photo.jpg?v=2" />
   <meta name="twitter:card" content="summary_large_image" />
 
   <!-- Drop .no-js as early as possible so a working browser gets the enhanced UI;
@@ -25,7 +25,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700;800&family=Inter:wght@400;500&display=swap" rel="stylesheet" />
 
-  <link rel="stylesheet" href="css/styles.css?v=4" />
+  <link rel="stylesheet" href="css/styles.css?v=5" />
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='6' fill='%230b0a09'/%3E%3Crect x='4' y='4' width='92' height='92' rx='4' fill='none' stroke='%23f5a623' stroke-width='3'/%3E%3Ctext x='50' y='66' font-family='monospace' font-size='46' font-weight='800' text-anchor='middle' fill='%23f5a623'%3Egp%3C/text%3E%3C/svg%3E" />
 </head>
 <body>
@@ -123,12 +123,12 @@
             <span class="panel__tick panel__tick--br" aria-hidden="true"></span>
             <div class="panel__media">
               <picture>
-                <source srcset="assets/img/photo.webp" type="image/webp" />
-                <img class="panel__img" src="assets/img/photo.jpg" alt="Gleb Pyatkov" decoding="async" width="640" height="800" />
+                <source srcset="assets/img/photo.webp?v=2" type="image/webp" />
+                <img class="panel__img" src="assets/img/photo.png?v=2" alt="Gleb Pyatkov" decoding="async" width="720" height="961" />
               </picture>
             </div>
             <figcaption class="panel__meta">
-              <span class="panel__file">gleb_pyatkov.jpg</span>
+              <span class="panel__file">gleb_pyatkov.webp</span>
               <span class="panel__loc" aria-hidden="true">// REMOTE</span>
             </figcaption>
             <p class="panel__status">
@@ -180,11 +180,39 @@
         </header>
 
         <div class="projects">
-          <!-- [01] hookora — FLAGSHIP (content key set: p1) -->
+          <!-- [01] Whispo (content key set: p5) -->
           <article class="project" data-reveal>
             <header class="project__head">
               <span class="project__idx" aria-hidden="true">[01]</span>
-              <h3 class="project__name">hookora</h3>
+              <h3 class="project__name">Whispo</h3>
+              <span class="leader" aria-hidden="true"></span>
+              <a class="project__link" href="https://whispo.app" target="_blank" rel="noopener">whispo.app ↗</a>
+            </header>
+            <p class="project__sub" data-i18n="p5.sub">Cross-platform voice-dictation SaaS — native macOS app, FastAPI backend, web portal</p>
+            <button type="button" class="project__toggle" aria-expanded="false" aria-controls="p5-details">
+              <span class="project__toggle-label" data-i18n="ui.expand">expand ▸</span>
+            </button>
+            <div class="project__details" id="p5-details">
+              <ul class="project__bullets">
+                <li data-i18n="p5.b1">Native macOS app (Swift/SwiftUI, ~12.5k LOC): global push-to-talk hotkeys, Groq Whisper transcription, clipboard + ⌘V injection into any app, cloud-synced Memory Storage</li>
+                <li data-i18n="p5.b2">FastAPI backend — 15 API modules: Supabase JWT (ES256/HS256), Redis per-user/IP rate limiting, prompt-injection-hardened Groq Llama-3.3-70B text restructuring</li>
+                <li data-i18n="p5.b3">End-to-end monetization — two payment gateways (YooKassa + CryptoCloud) with auto-renewal and referral bonuses; Prometheus/Grafana/Loki observability, Docker + nginx + Cloudflare</li>
+              </ul>
+              <div class="project__metrics">
+                <span class="chip chip--metric" data-i18n="p5.m1">macOS + Web</span>
+                <span class="chip chip--metric" data-i18n="p5.m2">JWT ES256</span>
+                <span class="chip chip--metric" data-i18n="p5.m3">Payments</span>
+              </div>
+            </div>
+            <div class="ribbon" data-ribbon="whispo"></div>
+            <p class="project__stack"><span class="project__stack-k">stack</span> Swift · SwiftUI · React · TypeScript · FastAPI · Supabase · Redis · Groq (Whisper + Llama 3.3) · YooKassa · CryptoCloud · Docker</p>
+          </article>
+
+          <!-- [02] hookora — FLAGSHIP (content key set: p1) -->
+          <article class="project" data-reveal>
+            <header class="project__head">
+              <span class="project__idx" aria-hidden="true">[02]</span>
+              <h3 class="project__name">Hookora</h3>
               <span class="leader" aria-hidden="true"></span>
               <span class="badge badge--flagship" data-i18n="badge.flagship">FLAGSHIP</span>
             </header>
@@ -208,38 +236,11 @@
             <p class="project__stack"><span class="project__stack-k">stack</span> TypeScript · Fastify 5 · React 18 · Vite · Tailwind v4 · PostgreSQL 16 · Groq (Whisper + Llama 3.3) · Remotion · Docker · Nginx</p>
           </article>
 
-          <!-- [02] Whispo (content key set: p5) -->
-          <article class="project" data-reveal>
-            <header class="project__head">
-              <span class="project__idx" aria-hidden="true">[02]</span>
-              <h3 class="project__name">Whispo</h3>
-              <span class="leader" aria-hidden="true"></span>
-            </header>
-            <p class="project__sub" data-i18n="p5.sub">Cross-platform voice-dictation SaaS — native macOS app, FastAPI backend, web portal</p>
-            <button type="button" class="project__toggle" aria-expanded="false" aria-controls="p5-details">
-              <span class="project__toggle-label" data-i18n="ui.expand">expand ▸</span>
-            </button>
-            <div class="project__details" id="p5-details">
-              <ul class="project__bullets">
-                <li data-i18n="p5.b1">Native macOS app (Swift/SwiftUI, ~12.5k LOC): global push-to-talk hotkeys, Groq Whisper transcription, clipboard + ⌘V injection into any app, cloud-synced Memory Storage</li>
-                <li data-i18n="p5.b2">FastAPI backend — 15 API modules: Supabase JWT (ES256/HS256), Redis per-user/IP rate limiting, prompt-injection-hardened Groq Llama-3.3-70B text restructuring</li>
-                <li data-i18n="p5.b3">End-to-end monetization — two payment gateways (YooKassa + CryptoCloud) with auto-renewal and referral bonuses; Prometheus/Grafana/Loki observability, Docker + nginx + Cloudflare</li>
-              </ul>
-              <div class="project__metrics">
-                <span class="chip chip--metric" data-i18n="p5.m1">macOS + Web</span>
-                <span class="chip chip--metric" data-i18n="p5.m2">JWT ES256</span>
-                <span class="chip chip--metric" data-i18n="p5.m3">Payments</span>
-              </div>
-            </div>
-            <div class="ribbon" data-ribbon="whispo"></div>
-            <p class="project__stack"><span class="project__stack-k">stack</span> Swift · SwiftUI · React · TypeScript · FastAPI · Supabase · Redis · Groq (Whisper + Llama 3.3) · YooKassa · CryptoCloud · Docker</p>
-          </article>
-
           <!-- [03] hh.ru Job Agent — CURRENT (content key set: p2) -->
           <article class="project" data-reveal>
             <header class="project__head">
               <span class="project__idx" aria-hidden="true">[03]</span>
-              <h3 class="project__name">hh.ru Job Agent</h3>
+              <h3 class="project__name">HH Job Agent</h3>
               <span class="leader" aria-hidden="true"></span>
               <span class="badge badge--current" data-i18n="badge.current">CURRENT</span>
             </header>
@@ -543,6 +544,6 @@
     </div>
   </footer>
 
-  <script type="module" src="js/main.js?v=4"></script>
+  <script type="module" src="js/main.js?v=5"></script>
 </body>
 </html>
