@@ -13,6 +13,7 @@ import { I18N, applyLang } from './i18n.js?v=3';
    ───────────────────────────────────────────────────────────────────────── */
 const FALLBACK_GALLERY = {
   items: [
+    { id: 'hookora-demo', project: 'hookora', type: 'video', src: 'assets/video/hookora-demo.mp4', poster: 'assets/poster/hookora-demo.jpg', w: 1500, h: 1000, caption: { en: 'hookora — platform demo', ru: 'hookora — демо платформы' } },
     { id: 'hookora-2', project: 'hookora', type: 'image', src: 'assets/img/hookora-2.webp', w: 1500, h: 1000, caption: { en: 'Keyword funnels — auto-DM on comment trigger', ru: 'Воронки — авто-ДМ по ключевому слову' } },
     { id: 'hookora-3', project: 'hookora', type: 'image', src: 'assets/img/hookora-3.webp', w: 1500, h: 1000, caption: { en: 'Video search — trending clips by topic',      ru: 'Поиск видео — вирусные ролики по теме' } },
     { id: 'hookora-6', project: 'hookora', type: 'image', src: 'assets/img/hookora-6.webp', w: 1500, h: 1000, caption: { en: 'Subtitle studio — project library',          ru: 'Субтитр-студия — библиотека проектов' } },
