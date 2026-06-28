@@ -4,7 +4,7 @@
 // scroll-into-view video autoplay, per-rail arrows/keyboard/progress, and the
 // project expand/collapse toggles.
 
-import { I18N, applyLang } from './i18n.js?v=2';
+import { I18N, applyLang } from './i18n.js?v=3';
 
 /* ─────────────────────────────────────────────────────────────────────────
    FALLBACK_GALLERY — identical to assets/manifest.json (same ids / project /

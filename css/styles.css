@@ -261,8 +261,8 @@ button { font: inherit; color: inherit; background: none; border: none; cursor: 
   white-space: nowrap;
 }
 .chip--metric {
-  color: var(--accent-bright);
-  background: var(--accent-soft);
+  color: var(--accent);
+  background: transparent;
   border-color: var(--accent-line);
 }
 .hero__chips {
