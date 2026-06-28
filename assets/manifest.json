@@ -25,6 +25,7 @@
     { "id": "whispo-web-faq",      "project": "whispo", "type": "image", "src": "assets/img/whispo-web-faq.webp",      "w": 1500, "h": 1000, "caption": { "en": "Web — FAQ",                       "ru": "Веб — FAQ" } },
     { "id": "whispo-web-contact",  "project": "whispo", "type": "image", "src": "assets/img/whispo-web-contact.webp",  "w": 1500, "h": 1000, "caption": { "en": "Web — contact",                   "ru": "Веб — контакты" } },
 
+    { "id": "hh-demo", "project": "hh-agent", "type": "video", "src": "assets/video/hh-demo.mp4", "poster": "assets/poster/hh-demo.jpg", "w": 1500, "h": 1000, "caption": { "en": "hh.ru Job Agent — live demo", "ru": "hh.ru Job Agent — живое демо" } },
     { "id": "hh-1", "project": "hh-agent", "type": "image", "src": "assets/img/hh-1.webp", "w": 1500, "h": 1000, "caption": { "en": "Dashboard — chat stats overview",          "ru": "Дашборд — обзор статистики чатов" } },
     { "id": "hh-2", "project": "hh-agent", "type": "image", "src": "assets/img/hh-2.webp", "w": 1500, "h": 1000, "caption": { "en": "HR chats — all negotiations",              "ru": "Чаты — переговоры с HR" } },
     { "id": "hh-3", "project": "hh-agent", "type": "image", "src": "assets/img/hh-3.webp", "w": 1500, "h": 1000, "caption": { "en": "Knowledge base — candidate profile cards", "ru": "База знаний — карточки профиля" } },
