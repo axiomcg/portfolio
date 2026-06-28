@@ -32,6 +32,8 @@
     { "id": "hh-6", "project": "hh-agent", "type": "image", "src": "assets/img/hh-6.webp", "w": 1500, "h": 1000, "caption": { "en": "Eval — answer-quality testing",            "ru": "Эвал — тест качества ответов" } },
     { "id": "hh-7", "project": "hh-agent", "type": "image", "src": "assets/img/hh-7.webp", "w": 1500, "h": 1000, "caption": { "en": "Prompt editor — versioned system prompt",  "ru": "Редактор промпта — версии системного промпта" } },
 
+    { "id": "mband-demo",    "project": "mband", "type": "video", "src": "assets/video/mband-demo.mp4",    "poster": "assets/poster/mband-demo.jpg",    "w": 1500, "h": 1000, "caption": { "en": "MBand — platform demo",                  "ru": "MBand — демо платформы" } },
+    { "id": "mband-landing", "project": "mband", "type": "video", "src": "assets/video/mband-landing.mp4", "poster": "assets/poster/mband-landing.jpg", "w": 1500, "h": 1000, "caption": { "en": "Landing Builder — AI landing generator", "ru": "Landing Builder — AI-генератор лендингов" } },
     { "id": "mband-1", "project": "mband", "type": "image", "src": "assets/img/mband-1.webp", "w": 1500, "h": 1000, "caption": { "en": "MBand AI — content tools hub",            "ru": "MBand AI — хаб инструментов" } },
     { "id": "mband-2", "project": "mband", "type": "image", "src": "assets/img/mband-2.webp", "w": 1500, "h": 1000, "caption": { "en": "AI chat — built-in LLM assistant",        "ru": "ИИ-чат — встроенный LLM-ассистент" } },
     { "id": "mband-3", "project": "mband", "type": "image", "src": "assets/img/mband-3.webp", "w": 1500, "h": 1000, "caption": { "en": "Image to video — Kling / Veo / Seedance",  "ru": "Изображение в видео — Kling / Veo / Seedance" } },
