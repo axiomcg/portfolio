@@ -4,7 +4,7 @@
 // scroll-into-view video autoplay, per-rail arrows/keyboard/progress, and the
 // project expand/collapse toggles.
 
-import { I18N, applyLang } from './i18n.js?v=5';
+import { I18N, applyLang } from './i18n.js?v=6';
 
 /* ─────────────────────────────────────────────────────────────────────────
    FALLBACK_GALLERY — identical to assets/manifest.json (same ids / project /
@@ -196,6 +196,7 @@ function setupExpanders() {
     if (!region) return;
     setToggle(btn, region, false, true); // default COLLAPSED, no animation on init
     btn.addEventListener('click', () => {
+      if (region.dataset.busy) return; // ignore rapid double-clicks while the open/close animation runs
       const open = btn.getAttribute('aria-expanded') !== 'true';
       setToggle(btn, region, open, false);
     });
@@ -213,6 +214,8 @@ function setToggle(btn, region, open, instant) {
 function openRegion(region, instant) {
   region.hidden = false;
   if (instant || prefersReduced) { region.style.height = ''; region.style.opacity = ''; return; }
+  region.dataset.busy = '1';
+  setTimeout(() => { delete region.dataset.busy; }, 380);
   const h = region.scrollHeight;
   region.style.height = '0px';
   region.style.opacity = '0';
@@ -230,6 +233,8 @@ function openRegion(region, instant) {
 
 function closeRegion(region, instant) {
   if (instant || prefersReduced) { region.hidden = true; region.style.height = ''; region.style.opacity = ''; return; }
+  region.dataset.busy = '1';
+  setTimeout(() => { delete region.dataset.busy; }, 380);
   const h = region.scrollHeight;
   region.style.height = `${h}px`;
   region.style.opacity = '1';
