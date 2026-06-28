@@ -176,7 +176,7 @@
         <header class="shead" data-reveal>
           <p class="kicker" data-i18n="projects.kicker">// what I build</p>
           <h2 class="h2" data-i18n="projects.title">Projects</h2>
-          <p class="shead__sub" data-i18n="projects.intro">Six production systems — AI agents, automation pipelines and full-cycle SaaS, all shipped solo.</p>
+          <p class="shead__sub" data-i18n="projects.intro">Seven production systems — AI agents, automation pipelines and full-cycle SaaS, all shipped solo.</p>
         </header>
 
         <div class="projects">
@@ -188,24 +188,24 @@
               <span class="leader" aria-hidden="true"></span>
               <span class="badge badge--flagship" data-i18n="badge.flagship">FLAGSHIP</span>
             </header>
-            <p class="project__sub" data-i18n="p1.sub">AI content-marketing SaaS where AI agents run strategy and auto-posting</p>
+            <p class="project__sub" data-i18n="p1.sub">TS monorepo for short-video creators: IG→DM funnels, viral search, AI captions, autopost</p>
             <button type="button" class="project__toggle" aria-expanded="false" aria-controls="p1-details">
               <span class="project__toggle-label" data-i18n="ui.expand">expand ▸</span>
             </button>
             <div class="project__details" id="p1-details">
               <ul class="project__bullets">
-                <li data-i18n="p1.b1">"Brain" multi-agent system — 3 agents (analyst / scriptwriter / closer) sharing a pgvector knowledge base</li>
-                <li data-i18n="p1.b2">Orchestrated via the Claude Agent SDK; monorepo of 5 services behind one Nginx gateway</li>
-                <li data-i18n="p1.b3">Fastify + PostgreSQL backend, React 18 + Vite frontend, 43 backend tests, Playwright E2E, Dockerized on a VPS</li>
+                <li data-i18n="p1.b1">4 independent Fastify 5 + TypeScript services over one PostgreSQL 16 behind an nginx gateway (Docker Compose); each self-migrates and returns a uniform {success, data, error} envelope</li>
+                <li data-i18n="p1.b2">Production AI: Groq Whisper-large-v3 transcription + Llama-3.3-70B caption generation, with system/user prompt-injection isolation over untrusted transcripts</li>
+                <li data-i18n="p1.b3">End-to-end social integrations — OAuth publishing to YouTube, TikTok & Instagram (tokens AES-256-GCM at rest), Meta-webhook comment→DM funnels (HMAC-verified), viral search via YouTube Data API + Apify</li>
               </ul>
               <div class="project__metrics">
-                <span class="chip chip--metric" data-i18n="p1.m1">5 services</span>
-                <span class="chip chip--metric" data-i18n="p1.m2">3 AI agents</span>
-                <span class="chip chip--metric" data-i18n="p1.m3">43 tests</span>
+                <span class="chip chip--metric" data-i18n="p1.m1">4 services</span>
+                <span class="chip chip--metric" data-i18n="p1.m2">782 tests</span>
+                <span class="chip chip--metric" data-i18n="p1.m3">AES-256-GCM</span>
               </div>
             </div>
             <div class="ribbon" data-ribbon="hookora"></div>
-            <p class="project__stack"><span class="project__stack-k">stack</span> TypeScript · Fastify · React · Vite · PostgreSQL · pgvector · Claude Agent SDK · OpenRouter · Docker · Nginx</p>
+            <p class="project__stack"><span class="project__stack-k">stack</span> TypeScript · Fastify 5 · React 18 · Vite · Tailwind v4 · PostgreSQL 16 · Groq (Whisper + Llama 3.3) · Remotion · Docker · Nginx</p>
           </article>
 
           <!-- [02] Whispo (content key set: p5) -->
@@ -215,15 +215,15 @@
               <h3 class="project__name">Whispo</h3>
               <span class="leader" aria-hidden="true"></span>
             </header>
-            <p class="project__sub" data-i18n="p5.sub">0→1 voice-dictation SaaS — macOS + web + payments backend</p>
+            <p class="project__sub" data-i18n="p5.sub">Cross-platform voice-dictation SaaS — native macOS app, FastAPI backend, web portal</p>
             <button type="button" class="project__toggle" aria-expanded="false" aria-controls="p5-details">
               <span class="project__toggle-label" data-i18n="ui.expand">expand ▸</span>
             </button>
             <div class="project__details" id="p5-details">
               <ul class="project__bullets">
-                <li data-i18n="p5.b1">Native macOS app (Swift/SwiftUI) — hotkey dictation (Option+Space), Groq Whisper, paste into the active app</li>
-                <li data-i18n="p5.b2">FastAPI backend — 13 API modules, JWT (ES256), rate limiting, Prometheus metrics</li>
-                <li data-i18n="p5.b3">Free/Standard/Pro subscriptions (YooKassa, CryptoCloud), auto-renewal, payment webhooks; GPT-4.1 text cleanup</li>
+                <li data-i18n="p5.b1">Native macOS app (Swift/SwiftUI, ~12.5k LOC): global push-to-talk hotkeys, Groq Whisper transcription, clipboard + ⌘V injection into any app, cloud-synced Memory Storage</li>
+                <li data-i18n="p5.b2">FastAPI backend — 15 API modules: Supabase JWT (ES256/HS256), Redis per-user/IP rate limiting, prompt-injection-hardened Groq Llama-3.3-70B text restructuring</li>
+                <li data-i18n="p5.b3">End-to-end monetization — two payment gateways (YooKassa + CryptoCloud) with auto-renewal and referral bonuses; Prometheus/Grafana/Loki observability, Docker + nginx + Cloudflare</li>
               </ul>
               <div class="project__metrics">
                 <span class="chip chip--metric" data-i18n="p5.m1">macOS + Web</span>
@@ -232,7 +232,7 @@
               </div>
             </div>
             <div class="ribbon" data-ribbon="whispo"></div>
-            <p class="project__stack"><span class="project__stack-k">stack</span> Swift · SwiftUI · React · TypeScript · FastAPI · PostgreSQL · Groq · YooKassa · CryptoCloud · Docker</p>
+            <p class="project__stack"><span class="project__stack-k">stack</span> Swift · SwiftUI · React · TypeScript · FastAPI · Supabase · Redis · Groq (Whisper + Llama 3.3) · YooKassa · CryptoCloud · Docker</p>
           </article>
 
           <!-- [03] hh.ru Job Agent — CURRENT (content key set: p2) -->
@@ -270,24 +270,24 @@
               <h3 class="project__name">MBand</h3>
               <span class="leader" aria-hidden="true"></span>
             </header>
-            <p class="project__sub" data-i18n="p3.sub">Internal AI platform that cut content production time by 75%</p>
+            <p class="project__sub" data-i18n="p3.sub">Internal AI platform automating image, video & copy production for a fashion brand</p>
             <button type="button" class="project__toggle" aria-expanded="false" aria-controls="p3-details">
               <span class="project__toggle-label" data-i18n="ui.expand">expand ▸</span>
             </button>
             <div class="project__details" id="p3-details">
               <ul class="project__bullets">
-                <li data-i18n="p3.b1">20 backend services with real-time progress over WebSocket/SSE</li>
-                <li data-i18n="p3.b2">Multiple AI providers (Gemini, Kling, Veo, Topaz, OpenRouter) with load-balancing, retry and fallback</li>
-                <li data-i18n="p3.b3">Fault-tolerant job queue (memory → DB → file) with auto-recovery; 16-page React SPA</li>
+                <li data-i18n="p3.b1">Solo full-cycle: FastAPI backend — 23 route groups, ~200 endpoints, 30+ service modules; ~68K LOC across Python + TypeScript</li>
+                <li data-i18n="p3.b2">Orchestrates 6+ AI providers (Gemini, OpenRouter, Kling, Veo, Topaz, Seedance) behind a persistent job queue with parallel processing, per-type concurrency limits and stuck-job recovery on restart</li>
+                <li data-i18n="p3.b3">React + TypeScript SPA — 19 tool pages (Canvas crop editor, drag-&-drop, SSE-streamed AI chat) on Supabase (Postgres + Auth + Storage), with Prometheus/Loki/Grafana observability</li>
               </ul>
               <div class="project__metrics">
-                <span class="chip chip--metric" data-i18n="p3.m1">fault-tolerant</span>
-                <span class="chip chip--metric" data-i18n="p3.m2">20 services</span>
+                <span class="chip chip--metric" data-i18n="p3.m1">~200 endpoints</span>
+                <span class="chip chip--metric" data-i18n="p3.m2">6+ AI providers</span>
                 <span class="chip chip--metric" data-i18n="p3.m3">−75% time</span>
               </div>
             </div>
             <div class="ribbon" data-ribbon="mband"></div>
-            <p class="project__stack"><span class="project__stack-k">stack</span> Python · FastAPI · React · TypeScript · FFmpeg · Gemini · Kling AI · Topaz · PostgreSQL · Docker</p>
+            <p class="project__stack"><span class="project__stack-k">stack</span> Python · FastAPI · React · TypeScript · Vite · Supabase · FFmpeg · Gemini · OpenRouter · Kling · Topaz · Docker</p>
           </article>
 
           <!-- [05] VikiShop (content key set: p4) -->
@@ -297,50 +297,78 @@
               <h3 class="project__name">VikiShop</h3>
               <span class="leader" aria-hidden="true"></span>
             </header>
-            <p class="project__sub" data-i18n="p4.sub">Fully automated digital-goods store — 24/7, zero humans in the loop</p>
+            <p class="project__sub" data-i18n="p4.sub">Hands-off PUBG UC resale — bots buy on Midasbuy, auto-sell across 3 marketplaces</p>
             <button type="button" class="project__toggle" aria-expanded="false" aria-controls="p4-details">
               <span class="project__toggle-label" data-i18n="ui.expand">expand ▸</span>
             </button>
             <div class="project__details" id="p4-details">
               <ul class="project__bullets">
-                <li data-i18n="p4.b1">4 microservices (FunPay, Playerok, GGSEL bots + Midasbuy auto-purchase worker)</li>
-                <li data-i18n="p4.b2">10-state FSM for the full order lifecycle; Playwright checkout with auto 3-D Secure OTP from email (IMAP)</li>
-                <li data-i18n="p4.b3">Dynamic pricing; concurrency-safe (SELECT FOR UPDATE), idempotent orders, graceful shutdown</li>
+                <li data-i18n="p4.b1">Microservice Docker stack on one PostgreSQL — 3 marketplace bots (FunPay/Playerok/GGSEL) + Midasbuy purchase worker + Telegram admin bot + FastAPI/React CRM + Prometheus/Grafana; services talk only via a DB queue</li>
+                <li data-i18n="p4.b2">11-state order FSM with a validated transition graph and retry/escalation; concurrency-safe via SELECT … FOR UPDATE SKIP LOCKED queue claims and row-locked transitions; idempotent on a unique platform order id</li>
+                <li data-i18n="p4.b3">Stealth browser automation on patchright (anti-detect Playwright fork) bypassing Midasbuy's anti-bot — per-account browser pool, multi-format IMAP OTP (3DS/EPN), priority card failover, Fernet-encrypted card data</li>
               </ul>
               <div class="project__metrics">
-                <span class="chip chip--metric" data-i18n="p4.m1">10-state FSM</span>
-                <span class="chip chip--metric" data-i18n="p4.m2">24/7</span>
-                <span class="chip chip--metric" data-i18n="p4.m3">Auto 3DS</span>
+                <span class="chip chip--metric" data-i18n="p4.m1">11-state FSM</span>
+                <span class="chip chip--metric" data-i18n="p4.m2">3 marketplaces</span>
+                <span class="chip chip--metric" data-i18n="p4.m3">~495 tests</span>
               </div>
             </div>
             <div class="ribbon" data-ribbon="vikishop"></div>
-            <p class="project__stack"><span class="project__stack-k">stack</span> Python · asyncio · SQLAlchemy · PostgreSQL · Playwright · Docker · Telegram Bot API · IMAP</p>
+            <p class="project__stack"><span class="project__stack-k">stack</span> Python · asyncio · SQLAlchemy 2.0 · asyncpg · PostgreSQL · patchright · FastAPI · React · Docker · Prometheus</p>
           </article>
 
-          <!-- [06] Telegram bots — no media → no ribbon (content key set: p6) -->
+          <!-- [06] Bybit Trading Bot — no media → no ribbon (content key set: p6) -->
           <article class="project" data-reveal>
             <header class="project__head">
               <span class="project__idx" aria-hidden="true">[06]</span>
-              <h3 class="project__name">Telegram bots</h3>
+              <h3 class="project__name">Bybit Trading Bot</h3>
               <span class="leader" aria-hidden="true"></span>
             </header>
-            <p class="project__sub" data-i18n="p6.sub">A series of bots for sales automation, notifications and monitoring</p>
+            <p class="project__sub" data-i18n="p6.sub">Event-driven Bybit USDT-perp futures bot — short-only fade-pump on Telegram signals</p>
             <button type="button" class="project__toggle" aria-expanded="false" aria-controls="p6-details">
               <span class="project__toggle-label" data-i18n="ui.expand">expand ▸</span>
             </button>
             <div class="project__details" id="p6-details">
               <ul class="project__bullets">
-                <li data-i18n="p6.b1">python-telegram-bot / GramJS with job queues and inline keyboards</li>
-                <li data-i18n="p6.b2">Integrated with external APIs and databases; balance monitoring and alerts</li>
-                <li data-i18n="p6.b3">Admin controls, rate limiting via semaphores, Redis-backed settings</li>
+                <li data-i18n="p6.b1">Dual Bybit v5 WebSocket: a private order/execution/position stream with manual HMAC-SHA256 auth as the source of truth, plus a public ticker feed — orjson serialization, auto-reconnect, graceful SIGINT/SIGTERM shutdown</li>
+                <li data-i18n="p6.b2">Exchange-side risk management: server stop-loss attached atomically to the entry order (no unprotected window), leverage control with TTL cache + retries and Bybit error-code handling, fixed-notional sizing rounded to the lot step</li>
+                <li data-i18n="p6.b3">Persisted trade ledger on PostgreSQL + SQLAlchemy 2.0 (typed Mapped) + Alembic: a trade_log table with a 5-state trade FSM, partial-fill aggregation, weighted entry price and PnL via ORM hybrid-properties</li>
               </ul>
               <div class="project__metrics">
-                <span class="chip chip--metric" data-i18n="p6.m1">Inline UI</span>
-                <span class="chip chip--metric" data-i18n="p6.m2">Job queue</span>
-                <span class="chip chip--metric" data-i18n="p6.m3">Redis</span>
+                <span class="chip chip--metric" data-i18n="p6.m1">dual WebSocket</span>
+                <span class="chip chip--metric" data-i18n="p6.m2">HMAC-SHA256</span>
+                <span class="chip chip--metric" data-i18n="p6.m3">FSM ledger</span>
               </div>
             </div>
-            <p class="project__stack"><span class="project__stack-k">stack</span> Python · python-telegram-bot · GramJS · Redis · PostgreSQL</p>
+            <div class="ribbon" data-ribbon="bybit"></div>
+            <p class="project__stack"><span class="project__stack-k">stack</span> Python 3.11 · asyncio · uvloop · pybit · websockets · aiogram · SQLAlchemy 2.0 · Alembic · PostgreSQL · Docker</p>
+          </article>
+
+          <!-- [07] HyperEVM Liquidity Bot — no media → no ribbon (content key set: p7) -->
+          <article class="project" data-reveal>
+            <header class="project__head">
+              <span class="project__idx" aria-hidden="true">[07]</span>
+              <h3 class="project__name">HyperEVM Liquidity Bot</h3>
+              <span class="leader" aria-hidden="true"></span>
+            </header>
+            <p class="project__sub" data-i18n="p7.sub">Concentrated-liquidity market-making bot on HyperEVM (DeFi)</p>
+            <button type="button" class="project__toggle" aria-expanded="false" aria-controls="p7-details">
+              <span class="project__toggle-label" data-i18n="ui.expand">expand ▸</span>
+            </button>
+            <div class="project__details" id="p7-details">
+              <ul class="project__bullets">
+                <li data-i18n="p7.b1">Auto-recenters an ultra-narrow LP window every cycle (default 5s) — closes (decreaseLiquidity → collect → burn) and re-mints on the live tick when price exits range or nears an edge, keeping the position earning fees 24/7</li>
+                <li data-i18n="p7.b2">Low-level on-chain Ethereum: raw eth_call to slot0 with manual two's-complement int24 tick decode, keccak-selector revert decoding and tickSpacing-aligned range math — abstracting two CL DEX forks (Project X, Ramses)</li>
+                <li data-i18n="p7.b3">Telegram-orchestrated 24/7 service: synchronous web3 loops in daemon threads wrapped as asyncio tasks, a Redis-persisted task registry that auto-restores after restart, plus a 3-asset inventory balancer routing swaps via KyberSwap/OpenOcean</li>
+              </ul>
+              <div class="project__metrics">
+                <span class="chip chip--metric" data-i18n="p7.m1">auto re-centering</span>
+                <span class="chip chip--metric" data-i18n="p7.m2">Uniswap V3 forks</span>
+                <span class="chip chip--metric" data-i18n="p7.m3">on-chain CL math</span>
+              </div>
+            </div>
+            <div class="ribbon" data-ribbon="hyperevm"></div>
+            <p class="project__stack"><span class="project__stack-k">stack</span> Python · web3.py · python-telegram-bot · Redis · PostgreSQL · KyberSwap · OpenOcean · HyperEVM</p>
           </article>
         </div>
       </div>

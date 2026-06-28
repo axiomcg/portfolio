@@ -1,0 +1,149 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1500 1000" width="1500" height="1000" role="img" aria-labelledby="t d">
+  <title id="t">VikiShop system architecture</title>
+  <desc id="d">Engineering schematic. Three marketplace bots — FunPay, Playerok and GGSEL — route every order through one central PostgreSQL queue (SELECT FOR UPDATE SKIP LOCKED); the queue is the only channel between services. A Midasbuy purchase worker (patchright stealth, IMAP OTP for 3DS/EPN, Fernet-encrypted cards) consumes work from the queue and delivers the goods back to the bots. A Telegram admin bot, a FastAPI plus React CRM and Prometheus/Grafana attach to the queue as the control and telemetry plane.</desc>
+
+  <defs>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <circle cx="0.8" cy="0.8" r="0.8" fill="#f5e6d2" fill-opacity="0.045"/>
+    </pattern>
+    <marker id="ah" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="#f5a623"/>
+    </marker>
+    <marker id="ahh" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="#8d8475"/>
+    </marker>
+    <marker id="ahg" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="#5fd17e"/>
+    </marker>
+  </defs>
+
+  <rect x="0" y="0" width="1500" height="1000" fill="#0b0a09"/>
+  <rect x="0" y="0" width="1500" height="1000" fill="url(#grid)"/>
+  <rect x="48" y="48" width="1404" height="904" fill="none" stroke="#f5e6d2" stroke-opacity="0.10" stroke-width="1"/>
+  <path d="M48 66 L48 48 L66 48" fill="none" stroke="#f5a623" stroke-opacity="0.55" stroke-width="1.5"/>
+  <path d="M1452 66 L1452 48 L1434 48" fill="none" stroke="#f5a623" stroke-opacity="0.55" stroke-width="1.5"/>
+  <path d="M48 934 L48 952 L66 952" fill="none" stroke="#f5a623" stroke-opacity="0.55" stroke-width="1.5"/>
+  <path d="M1452 934 L1452 952 L1434 952" fill="none" stroke="#f5a623" stroke-opacity="0.55" stroke-width="1.5"/>
+
+  <g font-family="'JetBrains Mono','SF Mono',Menlo,Consolas,ui-monospace,monospace">
+
+    <!-- kicker -->
+    <text x="72" y="92" fill="#f5a623" font-size="22">// vikishop · system architecture</text>
+
+    <!-- ===== delivery return loop (single green = delivered) — drawn first, behind nodes ===== -->
+    <polyline points="1190,400 1190,208 72,208 72,344 82,344" fill="none" stroke="#5fd17e" stroke-width="1.75" marker-end="url(#ahg)"/>
+    <g>
+      <rect x="503" y="195" width="256" height="26" rx="3" fill="#0b0a09" stroke="#f5e6d2" stroke-opacity="0.12"/>
+      <text x="631" y="213" text-anchor="middle" fill="#5fd17e" font-size="15">03 · delivery → delivered</text>
+    </g>
+
+    <!-- ===== data path group frame ===== -->
+    <rect x="64" y="256" width="1340" height="392" rx="6" fill="none" stroke="#f5e6d2" stroke-opacity="0.16" stroke-width="1.2" stroke-dasharray="2 6"/>
+    <text x="78" y="282" fill="#8d8475" font-size="16">// data path</text>
+
+    <!-- ===== marketplace bots (primary · ❯) ===== -->
+    <g>
+      <rect x="88" y="296" width="240" height="96" rx="4" fill="#100e0c" stroke="#f5e6d2" stroke-opacity="0.20" stroke-width="1.5"/>
+      <rect x="88" y="296" width="3" height="96" rx="1.5" fill="#f5a623"/>
+      <text x="110" y="352" fill="#ece7df" font-size="24"><tspan fill="#f5a623">❯ </tspan>FunPay bot</text>
+    </g>
+    <g>
+      <rect x="88" y="408" width="240" height="96" rx="4" fill="#100e0c" stroke="#f5e6d2" stroke-opacity="0.20" stroke-width="1.5"/>
+      <rect x="88" y="408" width="3" height="96" rx="1.5" fill="#f5a623"/>
+      <text x="110" y="464" fill="#ece7df" font-size="24"><tspan fill="#f5a623">❯ </tspan>Playerok bot</text>
+    </g>
+    <g>
+      <rect x="88" y="520" width="240" height="96" rx="4" fill="#100e0c" stroke="#f5e6d2" stroke-opacity="0.20" stroke-width="1.5"/>
+      <rect x="88" y="520" width="3" height="96" rx="1.5" fill="#f5a623"/>
+      <text x="110" y="576" fill="#ece7df" font-size="24"><tspan fill="#f5a623">❯ </tspan>GGSEL bot</text>
+    </g>
+    <text x="208" y="640" text-anchor="middle" fill="#8d8475" font-size="15">marketplace · intake + resale</text>
+
+    <!-- ===== central queue (FOCAL · ◆ datastore) ===== -->
+    <text x="740" y="338" text-anchor="middle" fill="#f5a623" font-size="15">// the only channel — every service talks via the queue</text>
+    <g>
+      <rect x="560" y="356" width="360" height="200" rx="4" fill="#100e0c" stroke="#f5e6d2" stroke-opacity="0.20" stroke-width="1.5"/>
+      <rect x="560" y="356" width="3" height="200" rx="1.5" fill="#f5a623"/>
+      <text x="584" y="408" fill="#ece7df" font-size="28"><tspan fill="#f5a623">◆ </tspan>PostgreSQL</text>
+      <text x="584" y="440" fill="#8d8475" font-size="16">order queue</text>
+      <line x1="584" y1="466" x2="896" y2="466" stroke="#f5e6d2" stroke-opacity="0.16" stroke-width="1"/>
+      <text x="584" y="500" fill="#f5a623" font-size="17">SELECT … FOR UPDATE</text>
+      <text x="584" y="528" fill="#f5a623" font-size="17">SKIP LOCKED</text>
+    </g>
+
+    <!-- ===== purchase worker (primary · ▸) ===== -->
+    <g>
+      <rect x="1040" y="400" width="300" height="112" rx="4" fill="#100e0c" stroke="#f5e6d2" stroke-opacity="0.20" stroke-width="1.5"/>
+      <rect x="1040" y="400" width="3" height="112" rx="1.5" fill="#f5a623"/>
+      <text x="1062" y="446" fill="#ece7df" font-size="24"><tspan fill="#f5a623">▸ </tspan>Midasbuy worker</text>
+      <text x="1062" y="476" fill="#8d8475" font-size="16">stealth purchase pipeline</text>
+    </g>
+    <text x="1040" y="544" fill="#8d8475" font-size="15">· patchright (stealth)</text>
+    <text x="1040" y="568" fill="#8d8475" font-size="15">· IMAP OTP — 3DS / EPN</text>
+    <text x="1040" y="592" fill="#8d8475" font-size="15">· Fernet-encrypted cards</text>
+
+    <!-- ===== orders connectors (primary amber, orthogonal) ===== -->
+    <polyline points="328,344 472,344 472,406 558,406" fill="none" stroke="#f5a623" stroke-width="1.75" marker-end="url(#ah)"/>
+    <polyline points="328,456 558,456" fill="none" stroke="#f5a623" stroke-width="1.75" marker-end="url(#ah)"/>
+    <polyline points="328,568 472,568 472,506 558,506" fill="none" stroke="#f5a623" stroke-width="1.75" marker-end="url(#ah)"/>
+    <g>
+      <rect x="444" y="443" width="112" height="26" rx="3" fill="#0b0a09" stroke="#f5e6d2" stroke-opacity="0.12"/>
+      <text x="500" y="461" text-anchor="middle" font-size="15"><tspan fill="#f5a623">01 </tspan><tspan fill="#b3a99b">orders</tspan></text>
+    </g>
+
+    <!-- ===== purchase connector (primary amber) ===== -->
+    <polyline points="920,456 1038,456" fill="none" stroke="#f5a623" stroke-width="1.75" marker-end="url(#ah)"/>
+    <g>
+      <rect x="922" y="443" width="116" height="26" rx="3" fill="#0b0a09" stroke="#f5e6d2" stroke-opacity="0.12"/>
+      <text x="980" y="461" text-anchor="middle" font-size="15"><tspan fill="#f5a623">02 </tspan><tspan fill="#b3a99b">purchase</tspan></text>
+    </g>
+
+    <!-- ===== control / telemetry plane ===== -->
+    <rect x="64" y="688" width="952" height="140" rx="6" fill="none" stroke="#f5e6d2" stroke-opacity="0.16" stroke-width="1.2" stroke-dasharray="2 6"/>
+    <text x="78" y="712" fill="#8d8475" font-size="16">// control plane</text>
+
+    <!-- control connectors (hairline dashed) -->
+    <polyline points="740,556 740,664" fill="none" stroke="#f5e6d2" stroke-opacity="0.22" stroke-width="1.5" stroke-dasharray="3 5"/>
+    <polyline points="236,664 844,664" fill="none" stroke="#f5e6d2" stroke-opacity="0.22" stroke-width="1.5" stroke-dasharray="3 5"/>
+    <polyline points="236,664 236,722" fill="none" stroke="#f5e6d2" stroke-opacity="0.22" stroke-width="1.5" stroke-dasharray="3 5" marker-end="url(#ahh)"/>
+    <polyline points="540,664 540,722" fill="none" stroke="#f5e6d2" stroke-opacity="0.22" stroke-width="1.5" stroke-dasharray="3 5" marker-end="url(#ahh)"/>
+    <polyline points="844,664 844,722" fill="none" stroke="#f5e6d2" stroke-opacity="0.22" stroke-width="1.5" stroke-dasharray="3 5" marker-end="url(#ahh)"/>
+    <g>
+      <rect x="664" y="597" width="152" height="26" rx="3" fill="#0b0a09" stroke="#f5e6d2" stroke-opacity="0.12"/>
+      <text x="740" y="615" text-anchor="middle" fill="#b3a99b" font-size="15">control · telemetry</text>
+    </g>
+
+    <g>
+      <rect x="96" y="724" width="280" height="84" rx="4" fill="#100e0c" stroke="#f5e6d2" stroke-opacity="0.20" stroke-width="1.5"/>
+      <rect x="96" y="724" width="3" height="84" rx="1.5" fill="#f5e6d2" fill-opacity="0.20"/>
+      <text x="118" y="762" fill="#b3a99b" font-size="20"><tspan fill="#8d8475">◎ </tspan>Telegram bot</text>
+      <text x="118" y="786" fill="#8d8475" font-size="15">admin · control</text>
+    </g>
+    <g>
+      <rect x="400" y="724" width="280" height="84" rx="4" fill="#100e0c" stroke="#f5e6d2" stroke-opacity="0.20" stroke-width="1.5"/>
+      <rect x="400" y="724" width="3" height="84" rx="1.5" fill="#f5e6d2" fill-opacity="0.20"/>
+      <text x="422" y="762" fill="#b3a99b" font-size="20"><tspan fill="#8d8475">▸ </tspan>CRM</text>
+      <text x="422" y="786" fill="#8d8475" font-size="15">FastAPI + React</text>
+    </g>
+    <g>
+      <rect x="704" y="724" width="280" height="84" rx="4" fill="#100e0c" stroke="#f5e6d2" stroke-opacity="0.20" stroke-width="1.5"/>
+      <rect x="704" y="724" width="3" height="84" rx="1.5" fill="#f5e6d2" fill-opacity="0.20"/>
+      <text x="726" y="762" fill="#b3a99b" font-size="20"><tspan fill="#8d8475">◎ </tspan>Prometheus</text>
+      <text x="726" y="786" fill="#8d8475" font-size="15">Grafana · metrics</text>
+    </g>
+
+    <!-- ===== title block / cartouche ===== -->
+    <rect x="1064" y="760" width="388" height="172" rx="6" fill="#0b0a09" stroke="#f5e6d2" stroke-opacity="0.18" stroke-width="1.2"/>
+    <text x="1086" y="790" fill="#8d8475" font-size="14" letter-spacing="0.18em">GLEB PYATKOV</text>
+    <text x="1086" y="816" font-size="18"><tspan fill="#f5a623">vikishop</tspan><tspan fill="#8d8475" font-size="16"> · fig.01</tspan></text>
+    <line x1="1086" y1="830" x2="1430" y2="830" stroke="#f5e6d2" stroke-opacity="0.16" stroke-width="1"/>
+    <line x1="1086" y1="850" x2="1112" y2="850" stroke="#f5a623" stroke-width="1.75" marker-end="url(#ah)"/>
+    <text x="1124" y="855" fill="#b3a99b" font-size="14">amber · primary data path</text>
+    <rect x="1088" y="868" width="16" height="16" rx="2" fill="#100e0c" stroke="#5fd17e" stroke-width="1.5"/>
+    <text x="1124" y="881" fill="#b3a99b" font-size="14">green · delivered</text>
+    <line x1="1086" y1="902" x2="1112" y2="902" stroke="#f5e6d2" stroke-opacity="0.30" stroke-width="1.5" stroke-dasharray="3 5" marker-end="url(#ahh)"/>
+    <text x="1124" y="907" fill="#b3a99b" font-size="14">hairline · control / telemetry</text>
+    <text x="1086" y="926" fill="#8d8475" font-size="12">❯ source   ◆ store   ▸ service   ◎ control</text>
+
+  </g>
+</svg>

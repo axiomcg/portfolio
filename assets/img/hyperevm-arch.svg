@@ -1,0 +1,166 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1500 1000" width="1500" height="1000" role="img">
+  <title>HyperEVM bot — system architecture</title>
+  <desc>An engineering schematic. A Telegram orchestrator on python-telegram-bot spawns daemon threads running asyncio tasks that drive two concentrated-liquidity market-making bots, Project X and Ramses, both Uniswap V3 forks, which call a HyperEVM RPC via raw eth_call to slot0 and decode the two's-complement int24 tick. An inventory balancer keeps HYPE, WHYPE and USDC near fifty-fifty for minting by swapping through KyberSwap and OpenOcean. A Redis task registry auto-restores worker tasks after a restart.</desc>
+  <defs>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <circle cx="0.8" cy="0.8" r="0.8" fill="#f5e6d2" fill-opacity="0.045"/>
+    </pattern>
+    <marker id="ah" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="#f5a623"/>
+    </marker>
+    <marker id="ahh" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="#8d8475"/>
+    </marker>
+  </defs>
+
+  <rect x="0" y="0" width="1500" height="1000" fill="#0b0a09"/>
+  <rect x="0" y="0" width="1500" height="1000" fill="url(#grid)"/>
+  <rect x="48" y="48" width="1404" height="904" fill="none" stroke="#f5e6d2" stroke-opacity="0.10" stroke-width="1"/>
+  <path d="M48 66 L48 48 L66 48" fill="none" stroke="#f5a623" stroke-opacity="0.55" stroke-width="1.5"/>
+  <path d="M1452 66 L1452 48 L1434 48" fill="none" stroke="#f5a623" stroke-opacity="0.55" stroke-width="1.5"/>
+  <path d="M48 934 L48 952 L66 952" fill="none" stroke="#f5a623" stroke-opacity="0.55" stroke-width="1.5"/>
+  <path d="M1452 934 L1452 952 L1434 952" fill="none" stroke="#f5a623" stroke-opacity="0.55" stroke-width="1.5"/>
+
+  <g font-family="'JetBrains Mono','SF Mono',Menlo,Consolas,ui-monospace,monospace">
+    <!-- kicker -->
+    <text x="72" y="92" font-size="22" fill="#f5a623">// hyperevm · system architecture</text>
+
+    <!-- ===================== grouping frames ===================== -->
+    <rect x="120" y="112" width="820" height="632" rx="6" fill="none" stroke="#f5e6d2" stroke-opacity="0.16" stroke-width="1.2" stroke-dasharray="2 6"/>
+    <text x="136" y="136" font-size="16" fill="#8d8475">// data path</text>
+
+    <rect x="1000" y="288" width="436" height="300" rx="6" fill="none" stroke="#f5e6d2" stroke-opacity="0.16" stroke-width="1.2" stroke-dasharray="2 6"/>
+    <text x="1016" y="312" font-size="16" fill="#8d8475">// inventory</text>
+
+    <rect x="180" y="792" width="520" height="152" rx="6" fill="none" stroke="#f5e6d2" stroke-opacity="0.16" stroke-width="1.2" stroke-dasharray="2 6"/>
+    <text x="196" y="816" font-size="16" fill="#8d8475">// control plane</text>
+
+    <!-- ===================== connectors ===================== -->
+    <!-- spine (primary amber, orthogonal) -->
+    <g fill="none" stroke="#f5a623" stroke-width="1.75">
+      <polyline points="510,232 510,288" marker-end="url(#ah)"/>
+      <polyline points="510,392 510,420"/>
+      <polyline points="320,420 700,420"/>
+      <polyline points="320,420 320,448" marker-end="url(#ah)"/>
+      <polyline points="700,420 700,448" marker-end="url(#ah)"/>
+      <polyline points="320,552 320,580"/>
+      <polyline points="700,552 700,580"/>
+      <polyline points="320,580 700,580"/>
+      <polyline points="510,580 510,608" marker-end="url(#ah)"/>
+    </g>
+    <g>
+      <rect x="426" y="407" width="168" height="26" rx="3" fill="#0b0a09" stroke="#f5e6d2" stroke-opacity="0.12"/>
+      <text x="510" y="425" text-anchor="middle" font-size="15" fill="#b3a99b">Uniswap V3 forks</text>
+    </g>
+
+    <!-- inventory internal (amber swap action) -->
+    <polyline points="1218,440 1218,472" fill="none" stroke="#f5a623" stroke-width="1.75" marker-end="url(#ah)"/>
+
+    <!-- control / telemetry (hairline dashed) -->
+    <g fill="none" stroke="#f5e6d2" stroke-opacity="0.22" stroke-width="1.5" stroke-dasharray="3 5">
+      <polyline points="710,340 890,340 890,388 1024,388" marker-end="url(#ahh)"/>
+      <polyline points="1024,532 870,532" marker-end="url(#ahh)"/>
+      <polyline points="212,860 144,860 144,340 310,340" marker-end="url(#ahh)"/>
+    </g>
+    <g>
+      <rect x="721" y="327" width="148" height="26" rx="3" fill="#0b0a09" stroke="#f5e6d2" stroke-opacity="0.12"/>
+      <text x="795" y="345" text-anchor="middle" font-size="15" fill="#b3a99b">balancer task</text>
+    </g>
+    <text x="947" y="503" text-anchor="middle" font-size="15" fill="#8d8475">keeps ≈50/50</text>
+    <text x="947" y="521" text-anchor="middle" font-size="15" fill="#8d8475">for mint</text>
+    <g>
+      <rect x="151" y="327" width="146" height="26" rx="3" fill="#0b0a09" stroke="#f5e6d2" stroke-opacity="0.12"/>
+      <text x="224" y="345" text-anchor="middle" font-size="15" fill="#b3a99b">restore tasks</text>
+    </g>
+
+    <!-- ===================== nodes ===================== -->
+    <!-- N1 orchestrator (control) -->
+    <g>
+      <rect x="310" y="128" width="400" height="104" rx="4" fill="#100e0c" stroke="#f5e6d2" stroke-opacity="0.20" stroke-width="1.5"/>
+      <rect x="310" y="128" width="3" height="104" rx="1.5" fill="#f5a623"/>
+      <circle cx="340" cy="166" r="9" fill="none" stroke="#f5a623" stroke-width="1.6"/>
+      <circle cx="340" cy="166" r="3.2" fill="#f5a623"/>
+      <text x="364" y="172" font-size="24" fill="#ece7df">Telegram orchestrator</text>
+      <text x="364" y="200" font-size="16" fill="#8d8475">python-telegram-bot</text>
+    </g>
+    <!-- N2 daemon threads (process) -->
+    <g>
+      <rect x="310" y="288" width="400" height="104" rx="4" fill="#100e0c" stroke="#f5e6d2" stroke-opacity="0.20" stroke-width="1.5"/>
+      <rect x="310" y="288" width="3" height="104" rx="1.5" fill="#f5a623"/>
+      <path d="M334 319 L347 326 L334 333 Z" fill="#f5a623"/>
+      <text x="364" y="332" font-size="24" fill="#ece7df">daemon threads</text>
+      <text x="364" y="360" font-size="16" fill="#8d8475">asyncio tasks</text>
+    </g>
+    <!-- N3a CL bot Project X (process) -->
+    <g>
+      <rect x="150" y="448" width="340" height="104" rx="4" fill="#100e0c" stroke="#f5e6d2" stroke-opacity="0.20" stroke-width="1.5"/>
+      <rect x="150" y="448" width="3" height="104" rx="1.5" fill="#f5a623"/>
+      <path d="M174 479 L187 486 L174 493 Z" fill="#f5a623"/>
+      <text x="204" y="492" font-size="24" fill="#ece7df">CL bot · Project X</text>
+      <text x="204" y="520" font-size="16" fill="#8d8475">CL market-maker</text>
+    </g>
+    <!-- N3b CL bot Ramses (process) -->
+    <g>
+      <rect x="530" y="448" width="340" height="104" rx="4" fill="#100e0c" stroke="#f5e6d2" stroke-opacity="0.20" stroke-width="1.5"/>
+      <rect x="530" y="448" width="3" height="104" rx="1.5" fill="#f5a623"/>
+      <path d="M554 479 L567 486 L554 493 Z" fill="#f5a623"/>
+      <text x="584" y="492" font-size="24" fill="#ece7df">CL bot · Ramses</text>
+      <text x="584" y="520" font-size="16" fill="#8d8475">CL market-maker</text>
+    </g>
+    <!-- N4 HyperEVM RPC (chain) -->
+    <g>
+      <rect x="310" y="608" width="400" height="120" rx="4" fill="#100e0c" stroke="#f5e6d2" stroke-opacity="0.20" stroke-width="1.5"/>
+      <rect x="310" y="608" width="3" height="120" rx="1.5" fill="#f5a623"/>
+      <path d="M340 637 L348 641.5 L348 650.5 L340 655 L332 650.5 L332 641.5 Z" fill="none" stroke="#f5a623" stroke-width="1.6"/>
+      <text x="364" y="652" font-size="24" fill="#ece7df">HyperEVM RPC</text>
+      <text x="364" y="680" font-size="16" fill="#b3a99b">raw eth_call · slot0</text>
+      <text x="364" y="704" font-size="16" fill="#8d8475">two's-complement int24 tick</text>
+    </g>
+    <!-- N5 Inventory balancer (process, ancillary) -->
+    <g>
+      <rect x="1024" y="336" width="388" height="104" rx="4" fill="#100e0c" stroke="#f5e6d2" stroke-opacity="0.20" stroke-width="1.5"/>
+      <rect x="1024" y="336" width="3" height="104" rx="1.5" fill="#f5e6d2" fill-opacity="0.20"/>
+      <path d="M1048 367 L1061 374 L1048 381 Z" fill="#f5a623"/>
+      <text x="1078" y="380" font-size="24" fill="#ece7df">Inventory balancer</text>
+      <text x="1078" y="408" font-size="16" fill="#8d8475">HYPE · WHYPE · USDC</text>
+    </g>
+    <!-- N6 KyberSwap / OpenOcean (chain, ancillary) -->
+    <g>
+      <rect x="1024" y="472" width="388" height="96" rx="4" fill="#100e0c" stroke="#f5e6d2" stroke-opacity="0.20" stroke-width="1.5"/>
+      <rect x="1024" y="472" width="3" height="96" rx="1.5" fill="#f5e6d2" fill-opacity="0.20"/>
+      <path d="M1054 510 L1062 514.5 L1062 523.5 L1054 528 L1046 523.5 L1046 514.5 Z" fill="none" stroke="#f5a623" stroke-width="1.6"/>
+      <text x="1078" y="516" font-size="24" fill="#ece7df">KyberSwap / OpenOcean</text>
+      <text x="1078" y="544" font-size="16" fill="#8d8475">DEX aggregators</text>
+    </g>
+    <!-- N7 Redis (datastore, ancillary) -->
+    <g>
+      <rect x="212" y="832" width="400" height="96" rx="4" fill="#100e0c" stroke="#f5e6d2" stroke-opacity="0.20" stroke-width="1.5"/>
+      <rect x="212" y="832" width="3" height="96" rx="1.5" fill="#f5e6d2" fill-opacity="0.20"/>
+      <path d="M242 861 L251 870 L242 879 L233 870 Z" fill="none" stroke="#f5a623" stroke-width="1.6"/>
+      <text x="266" y="876" font-size="24" fill="#ece7df">Redis · task registry</text>
+      <text x="266" y="904" font-size="16" fill="#5fd17e">auto-restore after restart</text>
+    </g>
+
+    <!-- ===================== title cartouche ===================== -->
+    <rect x="1000" y="768" width="436" height="176" rx="6" fill="#0b0a09" stroke="#f5e6d2" stroke-opacity="0.18" stroke-width="1.2"/>
+    <text x="1024" y="798" font-size="14" fill="#8d8475" letter-spacing="2">GLEB PYATKOV</text>
+    <text x="1024" y="826" font-size="18" fill="#f5a623">hyperevm <tspan fill="#8d8475">· fig.02</tspan></text>
+    <line x1="1024" y1="840" x2="1412" y2="840" stroke="#f5e6d2" stroke-opacity="0.16" stroke-width="1"/>
+    <!-- connector legend -->
+    <line x1="1024" y1="864" x2="1056" y2="864" stroke="#f5a623" stroke-width="2" marker-end="url(#ah)"/>
+    <text x="1070" y="869" font-size="14" fill="#b3a99b">amber · primary data path</text>
+    <line x1="1024" y1="888" x2="1056" y2="888" stroke="#f5e6d2" stroke-opacity="0.4" stroke-width="1.5" stroke-dasharray="3 5"/>
+    <text x="1070" y="893" font-size="14" fill="#b3a99b">hairline · control / telemetry</text>
+    <line x1="1024" y1="904" x2="1412" y2="904" stroke="#f5e6d2" stroke-opacity="0.16" stroke-width="1"/>
+    <!-- glyph key -->
+    <circle cx="1034" cy="925" r="7" fill="none" stroke="#f5a623" stroke-width="1.3"/>
+    <circle cx="1034" cy="925" r="2.4" fill="#f5a623"/>
+    <text x="1048" y="930" font-size="13" fill="#b3a99b">ctl</text>
+    <path d="M1112 919 L1123 925 L1112 931 Z" fill="#f5a623"/>
+    <text x="1130" y="930" font-size="13" fill="#b3a99b">svc</text>
+    <path d="M1196 917 L1203 921 L1203 929 L1196 933 L1189 929 L1189 921 Z" fill="none" stroke="#f5a623" stroke-width="1.3"/>
+    <text x="1212" y="930" font-size="13" fill="#b3a99b">rpc</text>
+    <path d="M1280 917 L1288 925 L1280 933 L1272 925 Z" fill="none" stroke="#f5a623" stroke-width="1.3"/>
+    <text x="1296" y="930" font-size="13" fill="#b3a99b">store</text>
+  </g>
+</svg>

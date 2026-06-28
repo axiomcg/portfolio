@@ -42,8 +42,13 @@
     { "id": "mband-8", "project": "mband", "type": "image", "src": "assets/img/mband-8.webp", "w": 1500, "h": 1000, "caption": { "en": "Compress — media size reduction",          "ru": "Сжатие медиа — без потери качества" } },
     { "id": "mband-9", "project": "mband", "type": "image", "src": "assets/img/mband-9.webp", "w": 1500, "h": 1000, "caption": { "en": "Logo on video — brand watermark",         "ru": "Логотип на видео — брендирование" } },
 
-    { "id": "viki-3ds",       "project": "vikishop", "type": "image", "src": "assets/img/viki-3ds.webp",       "w": 1280, "h": 2650, "caption": { "en": "Automated 3-D Secure checkout", "ru": "Авто 3-D Secure оплата" } },
-    { "id": "viki-payment",   "project": "vikishop", "type": "image", "src": "assets/img/viki-payment.webp",   "w": 1280, "h": 2650, "caption": { "en": "Supplier checkout automation",  "ru": "Автооплата у поставщика" } },
-    { "id": "viki-completed", "project": "vikishop", "type": "image", "src": "assets/img/viki-completed.webp", "w": 1280, "h": 1024, "caption": { "en": "Order delivered",               "ru": "Заказ доставлен" } }
+    { "id": "viki-arch", "project": "vikishop", "type": "image", "src": "assets/img/viki-arch.svg", "w": 1500, "h": 1000, "caption": { "en": "System architecture — one DB queue, 3 marketplaces", "ru": "Архитектура — одна БД-очередь, 3 маркетплейса" } },
+    { "id": "viki-fsm", "project": "vikishop", "type": "image", "src": "assets/img/viki-fsm.svg", "w": 1500, "h": 1000, "caption": { "en": "Order lifecycle — 11-state FSM", "ru": "Жизненный цикл заказа — FSM на 11 состояний" } },
+
+    { "id": "bybit-arch", "project": "bybit", "type": "image", "src": "assets/img/bybit-arch.svg", "w": 1500, "h": 1000, "caption": { "en": "Signal → order pipeline", "ru": "Конвейер: сигнал → ордер" } },
+    { "id": "bybit-ledger", "project": "bybit", "type": "image", "src": "assets/img/bybit-ledger.svg", "w": 1500, "h": 1000, "caption": { "en": "Trade FSM ledger — 5 states", "ru": "FSM-леджер сделок — 5 состояний" } },
+
+    { "id": "hyperevm-recenter", "project": "hyperevm", "type": "image", "src": "assets/img/hyperevm-recenter.svg", "w": 1500, "h": 1000, "caption": { "en": "Concentrated-liquidity auto re-centering", "ru": "Авто-ре-центринг узкого диапазона" } },
+    { "id": "hyperevm-arch", "project": "hyperevm", "type": "image", "src": "assets/img/hyperevm-arch.svg", "w": 1500, "h": 1000, "caption": { "en": "System architecture", "ru": "Архитектура системы" } }
   ]
 }

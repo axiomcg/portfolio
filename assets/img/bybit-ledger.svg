@@ -1,0 +1,129 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1500 1000" width="1500" height="1000" role="img">
+  <title>Bybit trading bot — trade finite-state machine ledger</title>
+  <desc>Engineering schematic of a five-state trade machine. A trade goes Undefined then Opened, then fans into one of three terminal closures: ClosedByUser (manual), ClosedByStopLoss (server stop-loss), or ClosedByLiq (forced liquidation). The closure reason is derived from the Bybit createType field. The ledger aggregates partial fills into a weighted entry price and computes PnL via an ORM hybrid-property.</desc>
+
+  <defs>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <circle cx="0.8" cy="0.8" r="0.8" fill="#f5e6d2" fill-opacity="0.045"/>
+    </pattern>
+    <marker id="ah" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="#f5a623"/>
+    </marker>
+    <marker id="ahh" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="#8d8475"/>
+    </marker>
+    <marker id="ahd" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="#d97a2b"/>
+    </marker>
+  </defs>
+
+  <rect x="0" y="0" width="1500" height="1000" fill="#0b0a09"/>
+  <rect x="0" y="0" width="1500" height="1000" fill="url(#grid)"/>
+  <rect x="48" y="48" width="1404" height="904" fill="none" stroke="#f5e6d2" stroke-opacity="0.10" stroke-width="1"/>
+  <path d="M48 66 L48 48 L66 48" fill="none" stroke="#f5a623" stroke-opacity="0.55" stroke-width="1.5"/>
+  <path d="M1452 66 L1452 48 L1434 48" fill="none" stroke="#f5a623" stroke-opacity="0.55" stroke-width="1.5"/>
+  <path d="M48 934 L48 952 L66 952" fill="none" stroke="#f5a623" stroke-opacity="0.55" stroke-width="1.5"/>
+  <path d="M1452 934 L1452 952 L1434 952" fill="none" stroke="#f5a623" stroke-opacity="0.55" stroke-width="1.5"/>
+
+  <g font-family="'JetBrains Mono','SF Mono',Menlo,Consolas,ui-monospace,monospace">
+
+    <!-- kicker -->
+    <text x="72" y="92" font-size="22" fill="#f5a623">// bybit-bot · trade FSM · 5 states</text>
+
+    <!-- reason annotation -->
+    <text x="1000" y="176" font-size="16" fill="#8d8475" text-anchor="middle">reason ← createType</text>
+
+    <!-- ===== grouping zones ===== -->
+    <rect x="88" y="392" width="816" height="232" rx="6" fill="none" stroke="#f5e6d2" stroke-opacity="0.16" stroke-width="1.2" stroke-dasharray="2 6"/>
+    <text x="102" y="416" font-size="16" fill="#8d8475">// lifecycle</text>
+
+    <rect x="1048" y="208" width="392" height="608" rx="6" fill="none" stroke="#f5e6d2" stroke-opacity="0.16" stroke-width="1.2" stroke-dasharray="2 6"/>
+    <text x="1062" y="232" font-size="16" fill="#8d8475">// terminal closes</text>
+
+    <!-- ===== transitions (under nodes) ===== -->
+    <!-- Undefined -> Opened -->
+    <polyline points="420,512 560,512" fill="none" stroke="#f5a623" stroke-width="1.75" marker-end="url(#ah)"/>
+    <!-- Opened -> ClosedByUser (neutral) -->
+    <polyline points="880,480 968,480 968,304 1080,304" fill="none" stroke="#f5e6d2" stroke-opacity="0.30" stroke-width="1.6" marker-end="url(#ahh)"/>
+    <!-- Opened -> ClosedByStopLoss (amber) -->
+    <polyline points="880,512 1080,512" fill="none" stroke="#f5a623" stroke-width="1.75" marker-end="url(#ah)"/>
+    <!-- Opened -> ClosedByLiq (amber-deep) -->
+    <polyline points="880,544 1000,544 1000,720 1080,720" fill="none" stroke="#d97a2b" stroke-width="1.75" marker-end="url(#ahd)"/>
+
+    <!-- ===== nodes ===== -->
+    <!-- Undefined (neutral) -->
+    <rect x="120" y="448" width="300" height="128" rx="4" fill="#100e0c" stroke="#f5e6d2" stroke-opacity="0.20" stroke-width="1.5"/>
+    <rect x="120" y="448" width="3" height="128" rx="1.5" fill="#f5e6d2" fill-opacity="0.20"/>
+    <text x="142" y="478" font-size="13" fill="#8d8475">[00]</text>
+    <text x="142" y="524" font-size="24"><tspan fill="#b3a99b">□  Undefined</tspan></text>
+    <text x="142" y="554" font-size="16" fill="#8d8475">no position</text>
+
+    <!-- Opened (FOCAL active) -->
+    <rect x="560" y="432" width="320" height="160" rx="4" fill="#f5a623" fill-opacity="0.12" stroke="#f5a623" stroke-width="1.75"/>
+    <rect x="560" y="432" width="3" height="160" rx="1.5" fill="#f5a623"/>
+    <text x="582" y="466" font-size="13" fill="#8d8475">[01]</text>
+    <text x="582" y="522" font-size="28"><tspan fill="#ffc05a">◎  Opened</tspan></text>
+    <text x="582" y="556" font-size="16" fill="#b3a99b">live position</text>
+
+    <!-- ClosedByUser (neutral terminal) -->
+    <rect x="1080" y="240" width="336" height="128" rx="4" fill="#100e0c" stroke="#f5e6d2" stroke-opacity="0.20" stroke-width="1.5"/>
+    <rect x="1080" y="240" width="3" height="128" rx="1.5" fill="#f5e6d2" fill-opacity="0.20"/>
+    <text x="1102" y="270" font-size="13" fill="#8d8475">[02]</text>
+    <text x="1394" y="270" font-size="13" fill="#8d8475" text-anchor="end">end</text>
+    <text x="1102" y="316" font-size="24"><tspan fill="#b3a99b">■  ClosedByUser</tspan></text>
+    <text x="1102" y="346" font-size="16" fill="#8d8475">manual close</text>
+
+    <!-- ClosedByStopLoss (amber-deep terminal) -->
+    <rect x="1080" y="448" width="336" height="128" rx="4" fill="#100e0c" stroke="#f5e6d2" stroke-opacity="0.20" stroke-width="1.5"/>
+    <rect x="1080" y="448" width="3" height="128" rx="1.5" fill="#d97a2b"/>
+    <text x="1102" y="478" font-size="13" fill="#8d8475">[03]</text>
+    <text x="1394" y="478" font-size="13" fill="#8d8475" text-anchor="end">end</text>
+    <text x="1102" y="524" font-size="24"><tspan fill="#d97a2b">■</tspan><tspan fill="#ffc05a">  ClosedByStopLoss</tspan></text>
+    <text x="1102" y="554" font-size="16" fill="#b3a99b">server SL 0.8%</text>
+
+    <!-- ClosedByLiq (amber-deep terminal) -->
+    <rect x="1080" y="656" width="336" height="128" rx="4" fill="#100e0c" stroke="#f5e6d2" stroke-opacity="0.20" stroke-width="1.5"/>
+    <rect x="1080" y="656" width="3" height="128" rx="1.5" fill="#d97a2b"/>
+    <text x="1102" y="686" font-size="13" fill="#8d8475">[04]</text>
+    <text x="1394" y="686" font-size="13" fill="#8d8475" text-anchor="end">end</text>
+    <text x="1102" y="732" font-size="24"><tspan fill="#d97a2b">■</tspan><tspan fill="#ffc05a">  ClosedByLiq</tspan></text>
+    <text x="1102" y="762" font-size="16" fill="#b3a99b">forced liquidation</text>
+
+    <!-- ===== edge label chips ===== -->
+    <g>
+      <rect x="436" y="499" width="108" height="26" rx="3" fill="#0b0a09" stroke="#f5e6d2" stroke-opacity="0.12"/>
+      <text x="490" y="517" text-anchor="middle" font-size="15"><tspan fill="#f5a623">01</tspan><tspan fill="#b3a99b"> open</tspan></text>
+    </g>
+    <g>
+      <rect x="922" y="379" width="92" height="26" rx="3" fill="#0b0a09" stroke="#f5e6d2" stroke-opacity="0.12"/>
+      <text x="968" y="397" text-anchor="middle" font-size="15" fill="#b3a99b">manual</text>
+    </g>
+    <g>
+      <rect x="934" y="499" width="120" height="26" rx="3" fill="#0b0a09" stroke="#f5e6d2" stroke-opacity="0.12"/>
+      <text x="994" y="517" text-anchor="middle" font-size="15" fill="#f5a623">stop-loss</text>
+    </g>
+    <g>
+      <rect x="942" y="619" width="128" height="26" rx="3" fill="#0b0a09" stroke="#f5e6d2" stroke-opacity="0.12"/>
+      <text x="1006" y="637" text-anchor="middle" font-size="15" fill="#d97a2b">liquidation</text>
+    </g>
+
+    <!-- ===== caption ===== -->
+    <line x1="120" y1="856" x2="1020" y2="856" stroke="#f5e6d2" stroke-opacity="0.12" stroke-width="1"/>
+    <text x="580" y="892" text-anchor="middle" font-size="16"><tspan fill="#b3a99b">partial-fill aggregation</tspan><tspan fill="#8d8475"> · weighted entry price · </tspan><tspan fill="#b3a99b">PnL via ORM hybrid-property</tspan></text>
+
+    <!-- ===== title cartouche ===== -->
+    <rect x="1064" y="824" width="388" height="120" rx="4" fill="#0b0a09" stroke="#f5e6d2" stroke-opacity="0.18" stroke-width="1.2"/>
+    <text x="1084" y="852" font-size="14" letter-spacing="2.2" fill="#8d8475">GLEB PYATKOV</text>
+    <text x="1084" y="880" font-size="18"><tspan fill="#f5a623">bybit-bot</tspan><tspan fill="#8d8475" font-size="16"> · fig.02</tspan></text>
+    <line x1="1064" y1="896" x2="1452" y2="896" stroke="#f5e6d2" stroke-opacity="0.12" stroke-width="1"/>
+    <!-- legend row -->
+    <line x1="1084" y1="916" x2="1118" y2="916" stroke="#f5a623" stroke-width="1.75" marker-end="url(#ah)"/>
+    <text x="1128" y="921" font-size="14" fill="#b3a99b">transition</text>
+    <line x1="1252" y1="916" x2="1286" y2="916" stroke="#d97a2b" stroke-width="1.75" marker-end="url(#ahd)"/>
+    <text x="1296" y="921" font-size="14" fill="#b3a99b">forced close</text>
+    <!-- terminal key -->
+    <rect x="1084" y="930" width="13" height="13" rx="1" fill="#d97a2b"/>
+    <text x="1104" y="941" font-size="14" fill="#b3a99b">terminal state · neutral = manual</text>
+
+  </g>
+</svg>

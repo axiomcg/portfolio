@@ -1,3 +1,15 @@
 .DS_Store
 *.log
 .vps_pw
+
+# Internal tooling / infra — not for the public repo
+CLAUDE.md
+.backlog.md
+.context-handoff.md
+
+# Local preview / render artifacts
+_diagcheck.html
+v2-*.png
+ctx-*.jpeg
+*-ribbon-order.jpeg
+.playwright-mcp/
