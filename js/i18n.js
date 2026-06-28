@@ -32,7 +32,7 @@ export const I18N = {
     'stats.platform': `full-stack + native`,
     'stats.automated': `automated`,
     'stats.autonomous': `autonomous`,
-    'stats.zeroToOne': `idea → production`,
+    'stats.devops': `DevOps & infra`,
 
     // ── Projects ─────────────────────────────────────────────────────────
     'projects.kicker': `// what I build`,
@@ -193,7 +193,7 @@ export const I18N = {
     'stats.platform': `фулстек + нативно`,
     'stats.automated': `автоматизировано`,
     'stats.autonomous': `автономно`,
-    'stats.zeroToOne': `от идеи до прода`,
+    'stats.devops': `DevOps и инфра`,
 
     // ── Projects ─────────────────────────────────────────────────────────
     'projects.kicker': `// что я делаю`,
